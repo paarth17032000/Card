@@ -20,8 +20,8 @@ export default class Drag extends Component {
                     >
                     <ResizableBox
                         className="handle"
-                        width={100}
-                        height={100}
+                        width={150}
+                        height={150}
                         minConstraints={[50,50]}
                         style={{position: "absolute", top: 0, cursor:"grab"}}
                     >
