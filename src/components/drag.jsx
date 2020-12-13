@@ -25,7 +25,9 @@ export default class Drag extends Component {
                         minConstraints={[50,50]}
                         style={{position: "absolute", top: 0, cursor:"grab"}}
                     >
-                        <div className="handle">hey there</div>
+                        <div className="handle">
+                            {/* draggable component */}
+                        </div>
                     </ResizableBox>
                 </Draggable>
             </div>
