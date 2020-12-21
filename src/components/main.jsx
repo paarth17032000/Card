@@ -6,35 +6,111 @@ export default class Main extends Component {
         super(props);
         this.componentRef = React.createRef();
         this.state={
+            width: "400px",
+            height: "400px",
             val: null
         }
     }
-    handleSearch = (e) => {
+    handleWidth = (e) => {
+        let width = `${e.target.value}px`;
         this.setState({
-            val: e.target.value
+            width
         })
-        console.log(this.state.val);
+        console.log(this.state.width);
     }
-    handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(this.state.val);
+    handleHeight = (e) => {
+        let height = `${e.target.value}px`;
+        this.setState({
+            height
+        })
+        console.log(this.state.height);
     }
+    // handleSearch = (e) => {
+    //     this.setState({
+    //         val: e.target.value
+    //     })
+    //     console.log(this.state.val);
+    // }
+    // handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     console.log(this.state.val);
+    // }
     render() {
         return (
             <div className="container-fluid">
                 <div className="row mx-auto">
-                    <div className="col-xl-4 col-md-5 col-sm-6 border mt-5">
-                        <div className="bg-success my-2 text-center">
-                           <Drag ref={this.componentRef} />
-                            <form onSubmit={this.handleSubmit}>
-                                <input onChange={this.handleSearch} className="m-4"/>
-                            </form> 
+                    <div className="col-xl-3 col-lg-4 col-md-4 border mt-4">
+                        <div className="my-4 text-center d-flex flex-column align-items-center">
+                            <h2>Wishes</h2>
+                            <h6 className="mt-2">Hoping to help you make invitation<br />according to you</h6>
+                            <div className="d-flex flex-row justify-content-around w-100">
+                                <input 
+                                type="text"
+                                onChange={this.handleWidth}
+                                placeholder="Enter Width"
+                                className="mt-3 mr-2 text-center form-control w-50" 
+                                />
+                                <input 
+                                    type="text"
+                                    onChange={this.handleHeight}
+                                    placeholder="Enter Height"
+                                    className="mt-3 ml-2 text-center form-control w-50" 
+                                />
+                            </div>
+                            <input 
+                                type="select"
+                                onChange={this}
+                                placeholder="Select Background"
+                                className="mt-3 text-center form-control w-75" 
+                            />
+                            <input 
+                                type="text"
+                                onChange={this}
+                                placeholder="Enter Text"
+                                className="mt-3 text-center form-control w-75" 
+                            />
+                            <div className="mt-3 d-flex flex-row justify-content-around w-50">
+                                <div className="btn btn-dark">B</div>
+                                <div className="btn btn-dark">I</div>
+                                <div className="btn btn-dark">U</div>
+                            </div> 
+                            <div className="mt-3 d-flex flex-row justify-content-around w-100">
+                                <input 
+                                    type="text"
+                                    onChange={this}
+                                    placeholder="Font Size(in px)"
+                                    className="text-center form-control w-50" 
+                                />
+                                <div className="btn btn-dark w-25">Color</div>
+                            </div>
+                            <div className="mt-4 btn btn-dark w-75">Add Another Text Feild</div>
+                            {/* image as bg */}
+                            <input 
+                                type="file"
+                                onChange={this}
+                                placeholder="Font Size(in px)"
+                                className="mt-3 text-center form-control w-75" 
+                            />
+                            {/* image as image or illustration */}
+                            <input 
+                                type="file"
+                                onChange={this}
+                                placeholder="Font Size(in px)"
+                                className="mt-3 text-center form-control w-75" 
+                            />
                         </div>
                     </div>
-                    <div className="col-xl-8 col-md-7 col-sm-6 border mt-5">
-                        <div className="bg-warning my-2">
-                            <div style={{backgroundColor: `${this.state.val}`}} className="p-5 border w-75">
-                                <h6>Welcome to the jungle ..</h6>
+                    <div className="col-xl-9 col-lg-8 col-md-8 d-flex flex-row justify-content-center align-items-center">
+                        <div className="my-4">
+                            <div 
+                                style={{
+                                    backgroundColor: `${this.state.val}`,
+                                    width: `${this.state.width}`,
+                                    height: `${this.state.height}`
+                                }} 
+                                className="bg-success"
+                            >
+                                {/* <h6>Welcome to the jungle ..</h6> */}
                             </div>
                         </div>
                         
@@ -45,4 +121,9 @@ export default class Main extends Component {
     }
 }
  
-                
+               
+
+{/* <Drag ref={this.componentRef} />
+                            <form onSubmit={this.handleSubmit}>
+                                <input onChange={this.handleSearch} className="m-4"/>
+                            </form>  */}
