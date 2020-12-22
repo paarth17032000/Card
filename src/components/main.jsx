@@ -101,6 +101,7 @@ export default class Main extends Component {
                         </div>
                     </div>
                     <div className="col-xl-9 col-lg-8 col-md-8 d-flex flex-row justify-content-center align-items-center">
+                        <Drag />
                         <div className="my-4">
                             <div 
                                 style={{
@@ -108,7 +109,7 @@ export default class Main extends Component {
                                     width: `${this.state.width}`,
                                     height: `${this.state.height}`
                                 }} 
-                                className="bg-success"
+                                className="border"
                             >
                                 {/* <h6>Welcome to the jungle ..</h6> */}
                             </div>
