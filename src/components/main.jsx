@@ -8,6 +8,7 @@ export default class Main extends Component {
         this.state={
             width: "400px",
             height: "400px",
+            text: null,
             val: null
         }
     }
@@ -24,6 +25,12 @@ export default class Main extends Component {
             height
         })
         console.log(this.state.height);
+    }
+    handleText = (e) => {
+        this.setState({
+            text: e.target.value
+        })
+        console.log(this.state.text);
     }
     // handleSearch = (e) => {
     //     this.setState({
@@ -59,13 +66,13 @@ export default class Main extends Component {
                             </div>
                             <input 
                                 type="select"
-                                onChange={this}
+                                // onChange={this}
                                 placeholder="Select Background"
                                 className="mt-3 text-center form-control w-75" 
                             />
                             <input 
                                 type="text"
-                                onChange={this}
+                                onChange={this.handleText}
                                 placeholder="Enter Text"
                                 className="mt-3 text-center form-control w-75" 
                             />
@@ -77,7 +84,7 @@ export default class Main extends Component {
                             <div className="mt-3 d-flex flex-row justify-content-around w-100">
                                 <input 
                                     type="text"
-                                    onChange={this}
+                                    // onChange={this}
                                     placeholder="Font Size(in px)"
                                     className="text-center form-control w-50" 
                                 />
@@ -87,21 +94,21 @@ export default class Main extends Component {
                             {/* image as bg */}
                             <input 
                                 type="file"
-                                onChange={this}
+                                // onChange={this}
                                 placeholder="Font Size(in px)"
                                 className="mt-3 text-center form-control w-75" 
                             />
                             {/* image as image or illustration */}
                             <input 
                                 type="file"
-                                onChange={this}
+                                // onChange={this}
                                 placeholder="Font Size(in px)"
                                 className="mt-3 text-center form-control w-75" 
                             />
                         </div>
                     </div>
                     <div className="col-xl-9 col-lg-8 col-md-8 d-flex flex-row justify-content-center align-items-center">
-                        <Drag />
+                        <Drag text={this.state.text} />
                         <div className="my-4">
                             <div 
                                 style={{
