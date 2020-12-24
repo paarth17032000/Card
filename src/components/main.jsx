@@ -9,7 +9,8 @@ export default class Main extends Component {
             width: "400px",
             height: "400px",
             text: null,
-            val: null
+            val: null,
+            font: "16px"
         }
     }
     handleWidth = (e) => {
@@ -31,6 +32,12 @@ export default class Main extends Component {
             text: e.target.value
         })
         console.log(this.state.text);
+    }
+    handleFont = (e) => {
+        this.setState({
+            font: e.target.value
+        })
+        console.log(this.state.font);
     }
     // handleSearch = (e) => {
     //     this.setState({
@@ -84,9 +91,10 @@ export default class Main extends Component {
                             <div className="mt-3 d-flex flex-row justify-content-around w-100">
                                 <input 
                                     type="text"
-                                    // onChange={this}
+                                    onChange={this.handleFont}
                                     placeholder="Font Size(in px)"
                                     className="text-center form-control w-50" 
+                                    // style={{fontSize: `${this.state.font}px`}}
                                 />
                                 <div className="btn btn-dark w-25">Color</div>
                             </div>
@@ -108,7 +116,7 @@ export default class Main extends Component {
                         </div>
                     </div>
                     <div className="col-xl-9 col-lg-8 col-md-8 d-flex flex-row justify-content-center align-items-center">
-                        <Drag text={this.state.text} />
+                        <Drag data={this.state} />
                         <div className="my-4">
                             <div 
                                 style={{

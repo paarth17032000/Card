@@ -5,7 +5,7 @@ import "react-resizable/css/styles.css";
 
 export default class Drag extends Component {
     render() {
-        const { text } = this.props; 
+        const { data } = this.props; 
         return (
             <div>
                 <Draggable 
@@ -20,8 +20,11 @@ export default class Drag extends Component {
                         maxConstraints={[400,400]}
                         style={{position: "absolute", top: 0, cursor:"grab"}}
                     >
-                        <div className="handle">
-                            {text}
+                        <div 
+                            className="handle"
+                            style={{fontSize: `${data.font}px`}}
+                            >
+                            {data.text}
                         </div>
                     </ResizableBox>
                 </Draggable>
