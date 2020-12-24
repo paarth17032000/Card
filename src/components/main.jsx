@@ -10,7 +10,11 @@ export default class Main extends Component {
             height: "400px",
             text: null,
             val: null,
-            font: "16px"
+            font: "16px",
+            color: "black",
+            bold: "normal",
+            italics: "normal",
+            underline: "none"
         }
     }
     handleWidth = (e) => {
@@ -18,26 +22,80 @@ export default class Main extends Component {
         this.setState({
             width
         })
-        console.log(this.state.width);
+        // console.log(this.state.width);
     }
     handleHeight = (e) => {
         let height = `${e.target.value}px`;
         this.setState({
             height
         })
-        console.log(this.state.height);
+        // console.log(this.state.height);
     }
     handleText = (e) => {
         this.setState({
             text: e.target.value
         })
-        console.log(this.state.text);
+        // console.log(this.state.text);
     }
     handleFont = (e) => {
         this.setState({
             font: e.target.value
         })
-        console.log(this.state.font);
+        // console.log(this.state.font);
+    }
+    handleColor = (e) => {
+        this.setState({
+            color: e.target.value
+        })
+        // console.log(this.state.color);
+    }
+    handleBold = (e) => {
+        if(e.target.id === "false"){
+            e.target.id = "true";
+            let bold = "bold";
+            this.setState({
+                bold
+            })
+        }else{
+            e.target.id = "false";
+            let bold = "normal";
+            this.setState({
+                bold
+            })
+        }
+        // console.log(3,e.target.id);
+    }
+    handleItalics = (e) => {
+        if(e.target.id === "false"){
+            e.target.id = "true";
+            let italics = "italic";
+            this.setState({
+                italics
+            })
+        }else{
+            e.target.id = "false";
+            let italics = "normal";
+            this.setState({
+                italics
+            })
+        }
+        // console.log(3,e.target.id);
+    }
+    handleUnderline = (e) => {
+        if(e.target.id === "false"){
+            e.target.id = "true";
+            let underline = "underline";
+            this.setState({
+                underline
+            })
+        }else{
+            e.target.id = "false";
+            let underline = "none";
+            this.setState({
+                underline
+            })
+        }
+        // console.log(3,e.target.id);
     }
     // handleSearch = (e) => {
     //     this.setState({
@@ -84,9 +142,9 @@ export default class Main extends Component {
                                 className="mt-3 text-center form-control w-75" 
                             />
                             <div className="mt-3 d-flex flex-row justify-content-around w-50">
-                                <div className="btn btn-dark">B</div>
-                                <div className="btn btn-dark">I</div>
-                                <div className="btn btn-dark">U</div>
+                                <div className="btn btn-dark" id="false" onClick={this.handleBold}>B</div>
+                                <div className="btn btn-dark" id="false" onClick={this.handleItalics}>I</div>
+                                <div className="btn btn-dark" id="false" onClick={this.handleUnderline}>U</div>
                             </div> 
                             <div className="mt-3 d-flex flex-row justify-content-around w-100">
                                 <input 
@@ -94,9 +152,13 @@ export default class Main extends Component {
                                     onChange={this.handleFont}
                                     placeholder="Font Size(in px)"
                                     className="text-center form-control w-50" 
-                                    // style={{fontSize: `${this.state.font}px`}}
                                 />
-                                <div className="btn btn-dark w-25">Color</div>
+                                <input 
+                                    type="color"
+                                    onChange={this.handleColor}
+                                    placeholder="Color"
+                                    className="text-center form-control w-25"
+                                />
                             </div>
                             <div className="mt-4 btn btn-dark w-75">Add Another Text Feild</div>
                             {/* image as bg */}
@@ -115,8 +177,8 @@ export default class Main extends Component {
                             />
                         </div>
                     </div>
+
                     <div className="col-xl-9 col-lg-8 col-md-8 d-flex flex-row justify-content-center align-items-center">
-                        <Drag data={this.state} />
                         <div className="my-4">
                             <div 
                                 style={{
@@ -126,20 +188,12 @@ export default class Main extends Component {
                                 }} 
                                 className="border"
                             >
-                                {/* <h6>Welcome to the jungle ..</h6> */}
+                                <Drag ref={this.componentRef} data={this.state} />
                             </div>
-                        </div>
-                        
+                        </div> 
                     </div>
                 </div>
             </div>
         )
     }
 }
- 
-               
-
-{/* <Drag ref={this.componentRef} />
-                            <form onSubmit={this.handleSubmit}>
-                                <input onChange={this.handleSearch} className="m-4"/>
-                            </form>  */}

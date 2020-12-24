@@ -6,6 +6,7 @@ import "react-resizable/css/styles.css";
 export default class Drag extends Component {
     render() {
         const { data } = this.props; 
+        // const { Text, Font, Color} = data;
         return (
             <div>
                 <Draggable 
@@ -22,7 +23,12 @@ export default class Drag extends Component {
                     >
                         <div 
                             className="handle"
-                            style={{fontSize: `${data.font}px`}}
+                            style={{fontSize: `${data.font}px`,
+                                    color: `${data.color}`,
+                                    fontWeight: `${data.bold}`,
+                                    fontStyle: `${data.italics}`,
+                                    textDecoration: `${data.underline}`
+                                }}
                             >
                             {data.text}
                         </div>
