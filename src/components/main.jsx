@@ -117,10 +117,10 @@ export default class Main extends Component {
                             <h6 className="mt-2">Hoping to help you make invitation<br />according to you</h6>
                             <div className="d-flex flex-row justify-content-around w-100">
                                 <input 
-                                type="text"
-                                onChange={this.handleWidth}
-                                placeholder="Enter Width"
-                                className="mt-3 mr-2 text-center form-control w-50" 
+                                    type="text"
+                                    onChange={this.handleWidth}
+                                    placeholder="Enter Width"
+                                    className="mt-3 mr-2 text-center form-control w-50" 
                                 />
                                 <input 
                                     type="text"
@@ -129,12 +129,23 @@ export default class Main extends Component {
                                     className="mt-3 ml-2 text-center form-control w-50" 
                                 />
                             </div>
-                            <input 
-                                type="select"
+                            <select
                                 // onChange={this}
                                 placeholder="Select Background"
                                 className="mt-3 text-center form-control w-75" 
-                            />
+                            >
+                                <option>none</option>
+                                <option>Cake</option>
+                                <option>Party</option>
+                                <option>Colors</option>
+                                <option>Side-Style</option>
+                                <option>Decor</option>
+                                <option>Rangoli</option>
+                                <option>Scenery</option>
+                                <option>Triangles</option>
+                                <option>Mexican Folk</option>
+                                <option>Stars</option>
+                            </select>
                             <input 
                                 type="text"
                                 onChange={this.handleText}
