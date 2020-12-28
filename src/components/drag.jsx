@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Draggable from 'react-draggable'
 import { ResizableBox } from 'react-resizable'
 import "react-resizable/css/styles.css";
+import './coverimage.css'
 
 export default class Drag extends Component {
     render() {

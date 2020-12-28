@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Drag from './drag'
+import Stars from '../images/stars-pattern.png'
 
 export default class Main extends Component {
     constructor(props){
@@ -9,12 +10,13 @@ export default class Main extends Component {
             width: "400px",
             height: "400px",
             text: null,
-            val: null,
+            // val: null,
             font: "16px",
             color: "black",
             bold: "normal",
             italics: "normal",
-            underline: "none"
+            underline: "none",
+            bg: "none"
         }
     }
     handleWidth = (e) => {
@@ -97,6 +99,12 @@ export default class Main extends Component {
         }
         // console.log(3,e.target.id);
     }
+    handleBackground = (e) => {
+        this.setState({
+            bg: e.target.value
+        })
+        console.log(this.state.bg);
+    }
     // handleSearch = (e) => {
     //     this.setState({
     //         val: e.target.value
@@ -130,7 +138,7 @@ export default class Main extends Component {
                                 />
                             </div>
                             <select
-                                // onChange={this}
+                                onChange={this.handleBackground}
                                 placeholder="Select Background"
                                 className="mt-3 text-center form-control w-75" 
                             >
@@ -143,7 +151,7 @@ export default class Main extends Component {
                                 <option>Rangoli</option>
                                 <option>Scenery</option>
                                 <option>Triangles</option>
-                                <option>Mexican Folk</option>
+                                <option>Mexican-Folk</option>
                                 <option>Stars</option>
                             </select>
                             <input 
@@ -193,13 +201,19 @@ export default class Main extends Component {
                         <div className="my-4">
                             <div 
                                 style={{
-                                    backgroundColor: `${this.state.val}`,
+                                    // backgroundColor: "blue",
+                                    // backgroundImage: "url(" + {Stars} + ")",
+                                    // backgroundAttachment: 'fixed',
+                                    // backgroundSize: 'cover',
+                                    // backgroundRepeat: 'no-repeat',
+                                    // zIndex: 10,
+                                    /* content: ''; */
                                     width: `${this.state.width}`,
                                     height: `${this.state.height}`
                                 }} 
-                                className="border"
-                            >
-                                <Drag ref={this.componentRef} data={this.state} />
+                                className={`border ${this.state.bg}`}
+                            >  
+                                {/* <Drag ref={this.componentRef} data={this.state} /> */}
                             </div>
                         </div> 
                     </div>
