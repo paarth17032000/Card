@@ -19,7 +19,7 @@ export default class Drag extends Component {
                         width={100}
                         height={100}
                         minConstraints={[50,50]}
-                        maxConstraints={[400,400]}
+                        maxConstraints={[Infinity,Infinity]}
                         style={{position: "absolute", top: 0, cursor:"grab"}}
                     >
                         <div 
@@ -28,7 +28,8 @@ export default class Drag extends Component {
                                     color: `${data.color}`,
                                     fontWeight: `${data.bold}`,
                                     fontStyle: `${data.italics}`,
-                                    textDecoration: `${data.underline}`
+                                    textDecoration: `${data.underline}`,
+                                    // textAlign:'right'
                                 }}
                             >
                             {data.text}

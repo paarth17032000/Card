@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Drag from './drag'
-import Stars from '../images/stars-pattern.png'
+import './coverimage.css'
+import { FaAlignLeft } from "react-icons/fa"
+import { FaAlignCenter } from "react-icons/fa"
+import { FaAlignRight } from "react-icons/fa"
 
 export default class Main extends Component {
     constructor(props){
@@ -16,7 +19,8 @@ export default class Main extends Component {
             bold: "normal",
             italics: "normal",
             underline: "none",
-            bg: "none"
+            bg: "none",
+            feilds: [],
         }
     }
     handleWidth = (e) => {
@@ -105,16 +109,22 @@ export default class Main extends Component {
         })
         console.log(this.state.bg);
     }
-    // handleSearch = (e) => {
-    //     this.setState({
-    //         val: e.target.value
-    //     })
-    //     console.log(this.state.val);
-    // }
-    // handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log(this.state.val);
-    // }
+    handleAddFeild = (e) => {
+        let newFeild = {
+            text: (
+                <input 
+                    type="text"
+                    onChange={this.handleText}
+                    placeholder="Enter Text"
+                    className="mt-3 text-center form-control w-75" 
+                />
+            ),
+            // utilities
+        }
+        // this.setState({
+        //     feilds: [...this.state.feilds,newFeild]
+        // })
+    }
     render() {
         return (
             <div className="container-fluid">
@@ -160,10 +170,19 @@ export default class Main extends Component {
                                 placeholder="Enter Text"
                                 className="mt-3 text-center form-control w-75" 
                             />
-                            <div className="mt-3 d-flex flex-row justify-content-around w-50">
+                            <div className="mt-3 d-flex flex-row justify-content-around w-75">
                                 <div className="btn btn-dark" id="false" onClick={this.handleBold}>B</div>
                                 <div className="btn btn-dark" id="false" onClick={this.handleItalics}>I</div>
                                 <div className="btn btn-dark" id="false" onClick={this.handleUnderline}>U</div>
+                                <select
+                                    // onChange={this.handleBackground}
+                                    // placeholder="Select Background"
+                                    className="text-center form-control w-25 text-dark" 
+                                >
+                                    <option><FaAlignLeft /></option>
+                                    <option><FaAlignCenter /></option>
+                                    <option><FaAlignRight /></option>
+                                </select>
                             </div> 
                             <div className="mt-3 d-flex flex-row justify-content-around w-100">
                                 <input 
@@ -179,7 +198,12 @@ export default class Main extends Component {
                                     className="text-center form-control w-25"
                                 />
                             </div>
-                            <div className="mt-4 btn btn-dark w-75">Add Another Text Feild</div>
+                            <div 
+                                className="mt-4 btn btn-dark w-75"
+                                onClick={this.handleAddFeild}
+                            >
+                                Add Another Text Feild
+                            </div>
                             {/* image as bg */}
                             <input 
                                 type="file"
@@ -201,19 +225,12 @@ export default class Main extends Component {
                         <div className="my-4">
                             <div 
                                 style={{
-                                    // backgroundColor: "blue",
-                                    // backgroundImage: "url(" + {Stars} + ")",
-                                    // backgroundAttachment: 'fixed',
-                                    // backgroundSize: 'cover',
-                                    // backgroundRepeat: 'no-repeat',
-                                    // zIndex: 10,
-                                    /* content: ''; */
                                     width: `${this.state.width}`,
                                     height: `${this.state.height}`
                                 }} 
-                                className={`border ${this.state.bg}`}
+                                className={`border img-fluid ${this.state.bg}`}
                             >  
-                                {/* <Drag ref={this.componentRef} data={this.state} /> */}
+                                <Drag ref={this.componentRef} data={this.state} />
                             </div>
                         </div> 
                     </div>

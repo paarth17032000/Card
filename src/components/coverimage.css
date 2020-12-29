@@ -1,64 +1,49 @@
-.none{
-    /* background: ; */
-}
-
 .Cake{
-    background: url('../images/birthday_cake.jpg') no-repeat fixed;
+    background: url('../images/birthday_cake.jpg') no-repeat fixed ;
     background-size: cover;
-    z-index: 1;
-    /* content: ''; */
 }
 
 .Party{
     background: url('../images/birthday_party.jpg') no-repeat fixed;
     background-size: cover;
-    /* content: ''; */
 }
 
 .Colors{
     background: url('../images/colors.png') no-repeat fixed;
     background-size: cover;
-    /* content: ''; */
 }
 
 .Side-Style{
     background: url('../images/side_style.jpg') no-repeat fixed;
     background-size: cover;
-    /* content: ''; */
 }
 
 .Decor{
     background: url('../images/decor.jpg') no-repeat fixed;
     background-size: cover;
-    /* content: ''; */
 }
 
 .Rangoli{
     background: url('../images/rangoli_pattern.jpg') no-repeat fixed;
     background-size: cover;
-    /* content: ''; */
 }
 
 .Scenery{
     background: url('../images/scenery.jpg') no-repeat fixed;
     background-size: cover;
-    /* content: ''; */
 }
 
 .Triangles{
     background: url('../images/triangles.webp') no-repeat fixed;
     background-size: cover;
-    /* content: ''; */
 }
 
 .Mexica-Folk{
     background: url('../images/mexican-folk-wedding-or-party-invitation-vector-17979085.jpg') no-repeat fixed;
     background-size: cover;
-    /* content: ''; */
 }
 
 .Stars{
     background: url('../images/stars-pattern.png') no-repeat fixed;
     background-size: cover;
-    /* content: ''; */
 }
