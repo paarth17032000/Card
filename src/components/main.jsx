@@ -21,6 +21,7 @@ export default class Main extends Component {
             underline: "none",
             bg: "none",
             feilds: [],
+            key: 0,
         }
     }
     handleWidth = (e) => {
