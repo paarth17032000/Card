@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import Drag from './drag'
 import './coverimage.css'
-import { FaAlignLeft } from "react-icons/fa"
-import { FaAlignCenter } from "react-icons/fa"
-import { FaAlignRight } from "react-icons/fa"
+// import { FaAlignLeft } from "react-icons/fa"
+// import { FaAlignCenter } from "react-icons/fa"
+// import { FaAlignRight } from "react-icons/fa"
+import { BsTextLeft } from "react-icons/bs";
+import { BsTextCenter } from "react-icons/bs";
+import { BsTextRight } from "react-icons/bs";
 
 export default class Main extends Component {
     constructor(props){
@@ -180,9 +183,12 @@ export default class Main extends Component {
                                     // placeholder="Select Background"
                                     className="text-center form-control w-25 text-dark" 
                                 >
-                                    <option><FaAlignLeft /></option>
+                                    {/* <option><FaAlignLeft /></option>
                                     <option><FaAlignCenter /></option>
-                                    <option><FaAlignRight /></option>
+                                    <option><FaAlignRight /></option> */}
+                                    <i class="fad fa-align-left"></i>
+                                    <i class="fad fa-align-center"></i>
+                                    <i class="fas fa-align-right"></i>
                                 </select>
                             </div> 
                             <div className="mt-3 d-flex flex-row justify-content-around w-100">
