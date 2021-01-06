@@ -29,7 +29,7 @@ export default class Drag extends Component {
                                     fontWeight: `${data.bold}`,
                                     fontStyle: `${data.italics}`,
                                     textDecoration: `${data.underline}`,
-                                    // textAlign:'right'
+                                    textAlign:`${data.align}`
                                 }}
                             >
                             {data.text}

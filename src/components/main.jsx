@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import Drag from './drag'
 import './coverimage.css'
-// import { FaAlignLeft } from "react-icons/fa"
-// import { FaAlignCenter } from "react-icons/fa"
-// import { FaAlignRight } from "react-icons/fa"
-import { BsTextLeft } from "react-icons/bs";
-import { BsTextCenter } from "react-icons/bs";
-import { BsTextRight } from "react-icons/bs";
+// import { Form } from 'react-bootstrap'
+import Form from 'react-bootstrap/Form'
+import { FaAlignLeft } from "react-icons/fa"
+import { FaAlignCenter } from "react-icons/fa"
+import { FaAlignRight } from "react-icons/fa"
+// import { BsTextLeft } from "react-icons/bs";
+// import { BsTextCenter } from "react-icons/bs";
+// import { BsTextRight } from "react-icons/bs";
 
 export default class Main extends Component {
     constructor(props){
@@ -23,6 +25,7 @@ export default class Main extends Component {
             italics: "normal",
             underline: "none",
             bg: "none",
+            align: "left",
             feilds: [],
             key: 0,
         }
@@ -113,6 +116,12 @@ export default class Main extends Component {
         })
         console.log(this.state.bg);
     }
+    handleAlign = (e) => {
+        this.setState({
+            align: e.target.value
+        })
+        // console.log(this.state.text);
+    }
     handleAddFeild = (e) => {
         let newFeild = {
             text: (
@@ -179,17 +188,34 @@ export default class Main extends Component {
                                 <div className="btn btn-dark" id="false" onClick={this.handleItalics}>I</div>
                                 <div className="btn btn-dark" id="false" onClick={this.handleUnderline}>U</div>
                                 <select
-                                    // onChange={this.handleBackground}
+                                    onChange={this.handleAlign}
                                     // placeholder="Select Background"
                                     className="text-center form-control w-25 text-dark" 
                                 >
-                                    {/* <option><FaAlignLeft /></option>
-                                    <option><FaAlignCenter /></option>
-                                    <option><FaAlignRight /></option> */}
-                                    <i class="fad fa-align-left"></i>
+                                    <option value="fa fa-align-left"> left </option>
+                                    <option>center</option>
+                                    <option>right</option>
+                                    {/* <option value="fa fa-align-left"> &#xf036; </option>
+                                    <option>&#xf037;</option>
+                                    <option>&#xf038;</option> */}
+                                    {/* <FaAlignLeft/>
+                                    <FaAlignCenter/>
+                                    <FaAlignRight/> */}
+                                    {/* <i class="fad fa-align-left"></i>
                                     <i class="fad fa-align-center"></i>
-                                    <i class="fas fa-align-right"></i>
+                                    <i class="fas fa-align-right"></i> */}
                                 </select>
+                                {/* <FaAlignLeft/> */}
+                                {/* <Form>
+                                    <Form.Group  controlId="exampleForm.ControlSelect1" className="text-center w-50 text-dark">
+                                        <Form.Label>Example select</Form.Label>
+                                        <Form.Control as="select">
+                                            <option><FaAlignLeft /></option>
+                                            <option><FaAlignCenter /></option>
+                                            <option><FaAlignRight /></option>
+                                        </Form.Control>
+                                    </Form.Group>
+                                </Form> */}
                             </div> 
                             <div className="mt-3 d-flex flex-row justify-content-around w-100">
                                 <input 
