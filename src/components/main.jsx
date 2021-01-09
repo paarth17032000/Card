@@ -268,6 +268,9 @@ export default class Main extends Component {
                         </div> 
                     </div>
                 </div>
+                <div className="container-fluid">
+                    <div className="btn btn-dark mt-2 d-flex justify-content-center align-items-center w-25">Download</div>
+                </div>
             </div>
         )
     }
