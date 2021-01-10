@@ -1,14 +1,6 @@
 import React, { Component } from 'react'
 import Drag from './drag'
 import './coverimage.css'
-// import { Form } from 'react-bootstrap'
-import Form from 'react-bootstrap/Form'
-import { FaAlignLeft } from "react-icons/fa"
-import { FaAlignCenter } from "react-icons/fa"
-import { FaAlignRight } from "react-icons/fa"
-// import { BsTextLeft } from "react-icons/bs";
-// import { BsTextCenter } from "react-icons/bs";
-// import { BsTextRight } from "react-icons/bs";
 
 export default class Main extends Component {
     constructor(props){
@@ -192,30 +184,10 @@ export default class Main extends Component {
                                     // placeholder="Select Background"
                                     className="text-center form-control w-25 text-dark" 
                                 >
-                                    <option value="fa fa-align-left"> left </option>
-                                    <option>center</option>
-                                    <option>right</option>
-                                    {/* <option value="fa fa-align-left"> &#xf036; </option>
-                                    <option>&#xf037;</option>
-                                    <option>&#xf038;</option> */}
-                                    {/* <FaAlignLeft/>
-                                    <FaAlignCenter/>
-                                    <FaAlignRight/> */}
-                                    {/* <i class="fad fa-align-left"></i>
-                                    <i class="fad fa-align-center"></i>
-                                    <i class="fas fa-align-right"></i> */}
+                                    <option>Left</option>
+                                    <option>Center</option>
+                                    <option>Right</option>
                                 </select>
-                                {/* <FaAlignLeft/> */}
-                                {/* <Form>
-                                    <Form.Group  controlId="exampleForm.ControlSelect1" className="text-center w-50 text-dark">
-                                        <Form.Label>Example select</Form.Label>
-                                        <Form.Control as="select">
-                                            <option><FaAlignLeft /></option>
-                                            <option><FaAlignCenter /></option>
-                                            <option><FaAlignRight /></option>
-                                        </Form.Control>
-                                    </Form.Group>
-                                </Form> */}
                             </div> 
                             <div className="mt-3 d-flex flex-row justify-content-around w-100">
                                 <input 
@@ -267,9 +239,6 @@ export default class Main extends Component {
                             </div>
                         </div> 
                     </div>
-                </div>
-                <div className="container-fluid">
-                    <div className="btn btn-dark mt-2 d-flex justify-content-center align-items-center w-25">Download</div>
                 </div>
             </div>
         )
