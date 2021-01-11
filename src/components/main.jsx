@@ -18,8 +18,52 @@ export default class Main extends Component {
             underline: "none",
             bg: "none",
             align: "left",
-            feilds: [],
-            key: 0,
+            feilds: [
+                {
+                    key: 0,
+                    text:(
+                        <input 
+                            type="text"
+                            onChange={this.handleText}
+                            placeholder="Enter Text"
+                            className="mt-3 text-center form-control w-75" 
+                        />
+                    ),
+                    utilities:(
+                        <div className="mt-3 d-flex flex-row justify-content-around w-75">
+                            <div className="btn btn-dark" id="false" onClick={this.handleBold}>B</div>
+                            <div className="btn btn-dark" id="false" onClick={this.handleItalics}>I</div>
+                            <div className="btn btn-dark" id="false" onClick={this.handleUnderline}>U</div>
+                            <select
+                                onChange={this.handleAlign}
+                                // placeholder="Select Background"
+                                className="text-center form-control w-25 text-dark" 
+                            >
+                                <option>Left</option>
+                                <option>Center</option>
+                                <option>Right</option>
+                            </select>
+                        </div> 
+                    ),
+                    fontAndColor:(
+                        <div className="mt-3 d-flex flex-row justify-content-around w-100">
+                            <input 
+                                type="text"
+                                onChange={this.handleFont}
+                                placeholder="Font Size(in px)"
+                                className="text-center form-control w-50" 
+                            />
+                            <input 
+                                type="color"
+                                onChange={this.handleColor}
+                                placeholder="Color"
+                                className="text-center form-control w-25"
+                            />
+                        </div>
+                    )
+                }
+            ],
+            keyVal: 0,
         }
     }
     handleWidth = (e) => {
