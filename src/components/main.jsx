@@ -26,11 +26,11 @@ export default class Main extends Component {
                             type="text"
                             onChange={this.handleText}
                             placeholder="Enter Text"
-                            className="mt-3 text-center form-control w-75" 
+                            className="mt-3 text-center form-control w-75 mx-auto" 
                         />
                     ),
                     utilities:(
-                        <div className="mt-3 d-flex flex-row justify-content-around w-75">
+                        <div className="mt-3 d-flex flex-row justify-content-around w-75  mx-auto">
                             <div className="btn btn-dark" id="false" onClick={this.handleBold}>B</div>
                             <div className="btn btn-dark" id="false" onClick={this.handleItalics}>I</div>
                             <div className="btn btn-dark" id="false" onClick={this.handleUnderline}>U</div>
@@ -46,7 +46,7 @@ export default class Main extends Component {
                         </div> 
                     ),
                     fontAndColor:(
-                        <div className="mt-3 d-flex flex-row justify-content-around w-100">
+                        <div id="line" className="mt-3 d-flex flex-row justify-content-around w-100">
                             <input 
                                 type="text"
                                 onChange={this.handleFont}
@@ -159,20 +159,54 @@ export default class Main extends Component {
         // console.log(this.state.text);
     }
     handleAddFeild = (e) => {
+        let key = this.state.keyVal + 1;
         let newFeild = {
-            text: (
+            key: key,
+            text:(
                 <input 
                     type="text"
                     onChange={this.handleText}
                     placeholder="Enter Text"
-                    className="mt-3 text-center form-control w-75" 
+                    className="mt-3 text-center form-control w-75 mx-auto" 
                 />
             ),
-            // utilities
+            utilities:(
+                <div className="mt-3 d-flex flex-row justify-content-around w-75 mx-auto">
+                    <div className="btn btn-dark" id="false" onClick={this.handleBold}>B</div>
+                    <div className="btn btn-dark" id="false" onClick={this.handleItalics}>I</div>
+                    <div className="btn btn-dark" id="false" onClick={this.handleUnderline}>U</div>
+                    <select
+                        onChange={this.handleAlign}
+                        // placeholder="Select Background"
+                        className="text-center form-control w-25 text-dark" 
+                    >
+                        <option>Left</option>
+                        <option>Center</option>
+                        <option>Right</option>
+                    </select>
+                </div> 
+            ),
+            fontAndColor:(
+                <div className="mt-3 d-flex flex-row justify-content-around w-100">
+                    <input 
+                        type="text"
+                        onChange={this.handleFont}
+                        placeholder="Font Size(in px)"
+                        className="text-center form-control w-50" 
+                    />
+                    <input 
+                        type="color"
+                        onChange={this.handleColor}
+                        placeholder="Color"
+                        className="text-center form-control w-25"
+                    />
+                </div>
+            )
         }
-        // this.setState({
-        //     feilds: [...this.state.feilds,newFeild]
-        // })
+        this.setState({
+            feilds: [...this.state.feilds,newFeild],
+            keyVal: key
+        })
     }
     render() {
         return (
@@ -213,40 +247,15 @@ export default class Main extends Component {
                                 <option>Mexican-Folk</option>
                                 <option>Stars</option>
                             </select>
-                            <input 
-                                type="text"
-                                onChange={this.handleText}
-                                placeholder="Enter Text"
-                                className="mt-3 text-center form-control w-75" 
-                            />
-                            <div className="mt-3 d-flex flex-row justify-content-around w-75">
-                                <div className="btn btn-dark" id="false" onClick={this.handleBold}>B</div>
-                                <div className="btn btn-dark" id="false" onClick={this.handleItalics}>I</div>
-                                <div className="btn btn-dark" id="false" onClick={this.handleUnderline}>U</div>
-                                <select
-                                    onChange={this.handleAlign}
-                                    // placeholder="Select Background"
-                                    className="text-center form-control w-25 text-dark" 
-                                >
-                                    <option>Left</option>
-                                    <option>Center</option>
-                                    <option>Right</option>
-                                </select>
-                            </div> 
-                            <div className="mt-3 d-flex flex-row justify-content-around w-100">
-                                <input 
-                                    type="text"
-                                    onChange={this.handleFont}
-                                    placeholder="Font Size(in px)"
-                                    className="text-center form-control w-50" 
-                                />
-                                <input 
-                                    type="color"
-                                    onChange={this.handleColor}
-                                    placeholder="Color"
-                                    className="text-center form-control w-25"
-                                />
-                            </div>
+                            {this.state.feilds.map((element,id) => {
+                                return(
+                                    <div key={id} className="line w-75">
+                                        {element.text}
+                                        {element.utilities}
+                                        {element.fontAndColor}
+                                    </div>
+                                )
+                            })}
                             <div 
                                 className="mt-4 btn btn-dark w-75"
                                 onClick={this.handleAddFeild}
