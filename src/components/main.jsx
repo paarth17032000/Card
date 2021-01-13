@@ -159,7 +159,7 @@ export default class Main extends Component {
         // console.log(this.state.text);
     }
     handleAddFeild = (e) => {
-        let key = this.state.keyVal + 1;
+        let key = parseInt(this.state.keyVal + 1);
         let newFeild = {
             key: key,
             text:(
@@ -207,6 +207,7 @@ export default class Main extends Component {
             feilds: [...this.state.feilds,newFeild],
             keyVal: key
         })
+        console.log(typeof this.state.keyVal);
     }
     render() {
         return (
