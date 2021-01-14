@@ -32,7 +32,7 @@ export default class Drag extends Component {
                                     textAlign:`${data.align}`
                                 }}
                             >
-                            {data.text}
+                            {data.text[key]}
                         </div>
                     </ResizableBox>
                 </Draggable>

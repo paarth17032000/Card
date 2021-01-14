@@ -9,15 +9,15 @@ export default class Main extends Component {
         this.state={
             width: "400px",
             height: "400px",
-            text: null,
+            text: [],
             // val: null,
-            font: "16px",
-            color: "black",
-            bold: "normal",
-            italics: "normal",
-            underline: "none",
+            font: [],
+            color: [],
+            bold: [],
+            italics: [],
+            underline: [],
             bg: "none",
-            align: "left",
+            align: [],
             feilds: [
                 {
                     key: 0,
@@ -81,10 +81,14 @@ export default class Main extends Component {
         // console.log(this.state.height);
     }
     handleText = (e) => {
+        let text = e.target.value;
+        let textArr = [...this.state.text, text];
+        console.log(textArr);
+        // console.log(1,this.state.text);
         this.setState({
-            text: e.target.value
+            text: textArr
         })
-        // console.log(this.state.text);
+        // console.log(9,this.state.text);
     }
     handleFont = (e) => {
         this.setState({
