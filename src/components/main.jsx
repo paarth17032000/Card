@@ -81,24 +81,26 @@ export default class Main extends Component {
         // console.log(this.state.height);
     }
     handleText = (e) => {
-        let text = e.target.value;
-        let textArr = [...this.state.text, text];
-        console.log(textArr);
+        let newText = e.target.value;
+        // let textArr = [...this.state.text, text];
+        // console.log(textArr);
         // console.log(1,this.state.text);
         this.setState({
-            text: textArr
+            text: [...this.state.text, newText]
         })
         // console.log(9,this.state.text);
     }
     handleFont = (e) => {
+        let newFont = e.target.value;
         this.setState({
-            font: e.target.value
+            font: [...this.state.font, newFont]
         })
         // console.log(this.state.font);
     }
     handleColor = (e) => {
+        let newColor = e.target.value;
         this.setState({
-            color: e.target.value
+            color: [...this.state.color, newColor]
         })
         // console.log(this.state.color);
     }
@@ -211,7 +213,7 @@ export default class Main extends Component {
             feilds: [...this.state.feilds,newFeild],
             keyVal: key
         })
-        console.log(typeof this.state.keyVal);
+        // console.log(typeof this.state.keyVal);
     }
     render() {
         return (
