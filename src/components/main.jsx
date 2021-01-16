@@ -24,6 +24,7 @@ export default class Main extends Component {
                     text:(
                         <input 
                             type="text"
+                            name="0"
                             onChange={this.handleText}
                             placeholder="Enter Text"
                             className="mt-3 text-center form-control w-75 mx-auto" 
@@ -31,11 +32,12 @@ export default class Main extends Component {
                     ),
                     utilities:(
                         <div className="mt-3 d-flex flex-row justify-content-around w-75  mx-auto">
-                            <div className="btn btn-dark" id="false" onClick={this.handleBold}>B</div>
-                            <div className="btn btn-dark" id="false" onClick={this.handleItalics}>I</div>
-                            <div className="btn btn-dark" id="false" onClick={this.handleUnderline}>U</div>
+                            <div className="btn btn-dark" id="false" name="0" onClick={this.handleBold}>B</div>
+                            <div className="btn btn-dark" id="false" name="0" onClick={this.handleItalics}>I</div>
+                            <div className="btn btn-dark" id="false" name="0" onClick={this.handleUnderline}>U</div>
                             <select
                                 onChange={this.handleAlign}
+                                name="0"
                                 // placeholder="Select Background"
                                 className="text-center form-control w-25 text-dark" 
                             >
@@ -49,12 +51,14 @@ export default class Main extends Component {
                         <div id="line" className="mt-3 d-flex flex-row justify-content-around w-100">
                             <input 
                                 type="text"
+                                name="0"
                                 onChange={this.handleFont}
                                 placeholder="Font Size(in px)"
                                 className="text-center form-control w-50" 
                             />
                             <input 
                                 type="color"
+                                name="0"
                                 onChange={this.handleColor}
                                 placeholder="Color"
                                 className="text-center form-control w-25"
@@ -81,28 +85,35 @@ export default class Main extends Component {
         // console.log(this.state.height);
     }
     handleText = (e) => {
-        let newText = e.target.value;
-        // let textArr = [...this.state.text, text];
-        // console.log(textArr);
+        // let newText = e.target.value;
+        let textArr = this.state.text;
+        textArr[parseInt(e.target.name)] = e.target.value;        // console.log(textArr);
         // console.log(1,this.state.text);
         this.setState({
-            text: [...this.state.text, newText]
+            // text: [...this.state.text, newText]
+            text: textArr
         })
         // console.log(9,this.state.text);
     }
     handleFont = (e) => {
-        let newFont = e.target.value;
+        // let newFont = e.target.value;
+        let fontArr = this.state.font;
+        fontArr[parseInt(e.target.name)] = e.target.value; 
         this.setState({
-            font: [...this.state.font, newFont]
+            // font: [...this.state.font, newFont]
+            font: fontArr
         })
         // console.log(this.state.font);
     }
     handleColor = (e) => {
-        let newColor = e.target.value;
+        // let newColor = e.target.value;
+        let colorArr = this.state.color;
+        colorArr[parseInt(e.target.name)] = e.target.value; 
         this.setState({
-            color: [...this.state.color, newColor]
+            // color: [...this.state.color, newColor]
+            color: colorArr
         })
-        // console.log(this.state.color);
+        console.log(1.00,e.target.name);
     }
     handleBold = (e) => {
         if(e.target.id === "false"){
@@ -171,6 +182,7 @@ export default class Main extends Component {
             text:(
                 <input 
                     type="text"
+                    name={key}
                     onChange={this.handleText}
                     placeholder="Enter Text"
                     className="mt-3 text-center form-control w-75 mx-auto" 
@@ -178,11 +190,12 @@ export default class Main extends Component {
             ),
             utilities:(
                 <div className="mt-3 d-flex flex-row justify-content-around w-75 mx-auto">
-                    <div className="btn btn-dark" id="false" onClick={this.handleBold}>B</div>
-                    <div className="btn btn-dark" id="false" onClick={this.handleItalics}>I</div>
-                    <div className="btn btn-dark" id="false" onClick={this.handleUnderline}>U</div>
+                    <div className="btn btn-dark" id="false" name={key} onClick={this.handleBold}>B</div>
+                    <div className="btn btn-dark" id="false" name={key} onClick={this.handleItalics}>I</div>
+                    <div className="btn btn-dark" id="false" name={key} onClick={this.handleUnderline}>U</div>
                     <select
                         onChange={this.handleAlign}
+                        name={key}
                         // placeholder="Select Background"
                         className="text-center form-control w-25 text-dark" 
                     >
@@ -196,12 +209,14 @@ export default class Main extends Component {
                 <div className="mt-3 d-flex flex-row justify-content-around w-100">
                     <input 
                         type="text"
+                        name={key}
                         onChange={this.handleFont}
                         placeholder="Font Size(in px)"
                         className="text-center form-control w-50" 
                     />
                     <input 
                         type="color"
+                        name={key}
                         onChange={this.handleColor}
                         placeholder="Color"
                         className="text-center form-control w-25"
