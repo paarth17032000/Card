@@ -7,7 +7,8 @@ import './coverimage.css'
 export default class Drag extends Component {
     render() {
         const { data } = this.props;
-        // console.log(data);
+        console.log(data);
+        
         let details = data.text.map((text, key) => {
             return(
                 <div key={key}>
@@ -27,11 +28,12 @@ export default class Drag extends Component {
                                 className="handle"
                                 style={{fontSize: `${data.font[key]}px`,
                                         color: `${data.color[key]}`,
-                                        zIndex: 10
-                                        // fontWeight: `${data.bold}`,
-                                        // fontStyle: `${data.italics}`,
-                                        // textDecoration: `${data.underline}`,
-                                        // textAlign:`${data.align}`
+                                        fontWeight: `${data.bold[key]}`,
+                                        fontStyle: `${data.italics[key]}`,
+                                        textDecoration: `${data.underline[key]}`,
+                                        textAlign:`${data.align[key]}`,
+                                        position: "absolute",
+                                        top: 0
                                     }}
                                 >
                                 {text}

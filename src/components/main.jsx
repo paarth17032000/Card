@@ -17,6 +17,7 @@ export default class Main extends Component {
             italics: [],
             underline: [],
             bg: "none",
+            upldImg: null,
             align: [],
             feilds: [
                 {
@@ -32,9 +33,9 @@ export default class Main extends Component {
                     ),
                     utilities:(
                         <div className="mt-3 d-flex flex-row justify-content-around w-75  mx-auto">
-                            <div className="btn btn-dark" id="false" name="0" onClick={this.handleBold}>B</div>
-                            <div className="btn btn-dark" id="false" name="0" onClick={this.handleItalics}>I</div>
-                            <div className="btn btn-dark" id="false" name="0" onClick={this.handleUnderline}>U</div>
+                            <input type="button" className="btn btn-dark" id="false" name="0" onClick={this.handleBold} value="B" />
+                            <input type="button" className="btn btn-dark" id="false" name="0" onClick={this.handleItalics} value="I" />
+                            <input type="button" className="btn btn-dark" id="false" name="0" onClick={this.handleUnderline} value="U" />
                             <select
                                 onChange={this.handleAlign}
                                 name="0"
@@ -87,7 +88,7 @@ export default class Main extends Component {
     handleText = (e) => {
         // let newText = e.target.value;
         let textArr = this.state.text;
-        textArr[parseInt(e.target.name)] = e.target.value;        // console.log(textArr);
+        textArr[parseInt(e.target.name)] = e.target.value; 
         // console.log(1,this.state.text);
         this.setState({
             // text: [...this.state.text, newText]
@@ -118,48 +119,74 @@ export default class Main extends Component {
     handleBold = (e) => {
         if(e.target.id === "false"){
             e.target.id = "true";
-            let bold = "bold";
+            // let bold = "bold";
+            let boldArr = this.state.bold;
+            boldArr[parseInt(e.target.name)] = "bold";
             this.setState({
-                bold
+                bold: boldArr
             })
+            // console.log(boldArr,e.target.name);
+            console.log(e.target.name);
         }else{
             e.target.id = "false";
-            let bold = "normal";
+            // let bold = "normal";
+            let boldArr = this.state.bold;
+            boldArr[parseInt(e.target.name)] = "normal";
             this.setState({
-                bold
+                bold: boldArr
             })
         }
-        // console.log(3,e.target.id);
     }
     handleItalics = (e) => {
         if(e.target.id === "false"){
             e.target.id = "true";
-            let italics = "italic";
+            // let italics = "italic";
+            let italicsArr = this.state.italics;
+            italicsArr[parseInt(e.target.name)] = "italic";
             this.setState({
-                italics
+                italics: italicsArr
             })
+            console.log(e.target);
+            // this.setState({
+            //     italics
+            // })
         }else{
             e.target.id = "false";
-            let italics = "normal";
+            // let italics = "normal";
+            let italicsArr = this.state.italics;
+            italicsArr[parseInt(e.target.name)] = "normal";
             this.setState({
-                italics
+                italics: italicsArr
             })
+            // this.setState({
+            //     italics
+            // })
         }
         // console.log(3,e.target.id);
     }
     handleUnderline = (e) => {
         if(e.target.id === "false"){
             e.target.id = "true";
-            let underline = "underline";
+            // let underline = "underline";
+            let underlineArr = this.state.underline;
+            underlineArr[parseInt(e.target.name)] = "underline";
             this.setState({
-                underline
+                underline: underlineArr
             })
+            // this.setState({
+            //     underline
+            // })
         }else{
             e.target.id = "false";
-            let underline = "none";
+            // let underline = "none";
+            let underlineArr = this.state.underline;
+            underlineArr[parseInt(e.target.name)] = "none";
             this.setState({
-                underline
+                underline: underlineArr
             })
+            // this.setState({
+            //     underline
+            // })
         }
         // console.log(3,e.target.id);
     }
@@ -170,9 +197,14 @@ export default class Main extends Component {
         console.log(this.state.bg);
     }
     handleAlign = (e) => {
-        this.setState({
-            align: e.target.value
-        })
+        let alignArr = this.state.align;
+            alignArr[parseInt(e.target.name)] = e.target.value;
+            this.setState({
+                align: alignArr
+            })
+        // this.setState({
+        //     align: e.target.value
+        // })
         // console.log(this.state.text);
     }
     handleAddFeild = (e) => {
@@ -190,9 +222,9 @@ export default class Main extends Component {
             ),
             utilities:(
                 <div className="mt-3 d-flex flex-row justify-content-around w-75 mx-auto">
-                    <div className="btn btn-dark" id="false" name={key} onClick={this.handleBold}>B</div>
-                    <div className="btn btn-dark" id="false" name={key} onClick={this.handleItalics}>I</div>
-                    <div className="btn btn-dark" id="false" name={key} onClick={this.handleUnderline}>U</div>
+                    <input type="button" className="btn btn-dark" id="false" name={key} onClick={this.handleBold} value="B" />
+                    <input type="button" className="btn btn-dark" id="false" name={key} onClick={this.handleItalics} value="I" />
+                    <input type="button" className="btn btn-dark" id="false" name={key} onClick={this.handleUnderline} value="U" />
                     <select
                         onChange={this.handleAlign}
                         name={key}
@@ -230,6 +262,11 @@ export default class Main extends Component {
         })
         // console.log(typeof this.state.keyVal);
     }
+    handleWallpaper = (e) => {
+        this.setState({
+            upldImg: URL.createObjectURL(e.target.files[0])
+        })
+    }
     render() {
         return (
             <div className="container-fluid">
@@ -237,7 +274,7 @@ export default class Main extends Component {
                     <div className="col-xl-3 col-lg-4 col-md-4 border mt-4">
                         <div className="my-4 text-center d-flex flex-column align-items-center">
                             <h2>Wishes</h2>
-                            <h6 className="mt-2">Hoping to help you make invitation<br />according to you</h6>
+                            <h6 className="mt-2">Hoping to help you make anything<br />according to you</h6>
                             <div className="d-flex flex-row justify-content-around w-100">
                                 <input 
                                     type="text"
@@ -285,18 +322,21 @@ export default class Main extends Component {
                                 Add Another Text Feild
                             </div>
                             {/* image as bg */}
+                            <h5 className="mt-3">-- choose for bg --</h5>
                             <input 
                                 type="file"
-                                // onChange={this}
+                                onChange={this.handleWallpaper}
+                                id = "wallpaper"
                                 placeholder="Font Size(in px)"
-                                className="mt-3 text-center form-control w-75" 
+                                className="mt-1 text-center form-control w-75" 
                             />
                             {/* image as image or illustration */}
+                            <h5 className="mt-3">-- choose for illus --</h5>
                             <input 
                                 type="file"
                                 // onChange={this}
                                 placeholder="Font Size(in px)"
-                                className="mt-3 text-center form-control w-75" 
+                                className="mt-1 text-center form-control w-75" 
                             />
                         </div>
                     </div>
