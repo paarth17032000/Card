@@ -17,7 +17,7 @@ export default class Main extends Component {
             italics: [],
             underline: [],
             bg: "none",
-            upldImg: null,
+            // upldImg: '',
             align: [],
             feilds: [
                 {
@@ -194,7 +194,7 @@ export default class Main extends Component {
         this.setState({
             bg: e.target.value
         })
-        console.log(this.state.bg);
+        // console.log(this.state.bg);
     }
     handleAlign = (e) => {
         let alignArr = this.state.align;
@@ -262,10 +262,13 @@ export default class Main extends Component {
         })
         // console.log(typeof this.state.keyVal);
     }
-    handleWallpaper = (e) => {
+    handleWallpaper = (event) => {
+        var image = this.state.upldImg;
+        image = URL.createObjectURL(event.target.files[0]);
         this.setState({
-            upldImg: URL.createObjectURL(e.target.files[0])
+            upldImg: image
         })
+        console.log(image);
     }
     render() {
         return (
@@ -323,32 +326,41 @@ export default class Main extends Component {
                             </div>
                             {/* image as bg */}
                             <h5 className="mt-3">-- choose for bg --</h5>
-                            <input 
-                                type="file"
-                                onChange={this.handleWallpaper}
-                                id = "wallpaper"
-                                placeholder="Font Size(in px)"
-                                className="mt-1 text-center form-control w-75" 
-                            />
+                            <div className="d-flex flex-row justify-content-around w-100 mx-auto">
+                                <input 
+                                    type="file"
+                                    onChange={this.handleWallpaper}
+                                    // id="wallpaper"
+                                    className="mt-1 text-center form-control w-75" 
+                                />
+                                <div className=" mt-1 btn btn-danger">X</div>
+                            </div>
                             {/* image as image or illustration */}
                             <h5 className="mt-3">-- choose for illus --</h5>
-                            <input 
-                                type="file"
-                                // onChange={this}
-                                placeholder="Font Size(in px)"
-                                className="mt-1 text-center form-control w-75" 
-                            />
+                            <div className="d-flex flex-row justify-content-around w-100 mx-auto">
+                                <input 
+                                    type="file"
+                                    // onChange={this.handle}
+                                    // id="wallpaper"
+                                    className="mt-1 text-center form-control w-75" 
+                                />
+                                <div className="mt-1 btn btn-danger">X</div>
+                            </div>
                         </div>
                     </div>
 
                     <div className="col-xl-9 col-lg-8 col-md-8 d-flex flex-row justify-content-center align-items-center">
                         <div className="my-4">
                             <div 
+                                className={`border img-fluid ${this.state.bg}`}
                                 style={{
                                     width: `${this.state.width}`,
-                                    height: `${this.state.height}`
+                                    height: `${this.state.height}`,
+                                    // background: `url(${this.state.upldImg})`,
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: 'cover',
+                                    backgroundAttachment: 'fixed'
                                 }} 
-                                className={`border img-fluid ${this.state.bg}`}
                             >  
                                 <Drag ref={this.componentRef} data={this.state} />
                             </div>
