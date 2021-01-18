@@ -7,7 +7,7 @@ import './coverimage.css'
 export default class Drag extends Component {
     render() {
         const { data } = this.props;
-        console.log(data);
+        // console.log(data);
         
         let details = data.text.map((text, key) => {
             return(

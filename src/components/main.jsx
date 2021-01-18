@@ -19,6 +19,24 @@ export default class Main extends Component {
             bg: "none",
             // upldImg: '',
             align: [],
+            imgAndIllus : [
+                {
+                    key: 0,
+                    element: (
+                        <div className="d-flex flex-row justify-content-around w-100 mx-auto">
+                            <input 
+                                type="file"
+                                name="0"
+                                // onChange={this.handle}
+                                // id="wallpaper"
+                                className="mt-1 text-center form-control w-75" 
+                            />
+                            <div className="mt-1 btn btn-danger" id="0" onClick={this.handleClose}>X</div>
+                        </div>
+                    )
+                }
+            ],
+            keyImg: 0,
             feilds: [
                 {
                     key: 0,
@@ -270,6 +288,36 @@ export default class Main extends Component {
         })
         console.log(image);
     }
+    handleAddImageAndIllustration = (e) => {
+        let key = parseInt(this.state.keyImg + 1);
+        let newFeild = {
+            key: key,
+            element: (
+                <div className="mt-2 d-flex flex-row justify-content-around w-100 mx-auto">
+                    <input 
+                        type="file"
+                        name={key}
+                        // onChange={this.handle}
+                        // id="wallpaper"
+                        className="text-center form-control w-75" 
+                    />
+                    <div className="btn btn-danger" id={key} onClick={this.handleClose}>X</div>
+                </div>
+            )
+        }
+        this.setState({
+            imgAndIllus: [...this.state.imgAndIllus,newFeild],
+            keyImg: key
+        })
+    }
+    handleClose = (e) => {
+        let id = parseInt(e.target.id);
+        let newArr = this.state.imgAndIllus.filter(element => id !== element.key);
+        this.setState({
+            imgAndIllus: newArr
+        })
+        // console.log(e.target.id,newArr);
+    }
     render() {
         return (
             <div className="container-fluid">
@@ -337,14 +385,15 @@ export default class Main extends Component {
                             </div>
                             {/* image as image or illustration */}
                             <h5 className="mt-3">-- choose for illus --</h5>
-                            <div className="d-flex flex-row justify-content-around w-100 mx-auto">
-                                <input 
-                                    type="file"
-                                    // onChange={this.handle}
-                                    // id="wallpaper"
-                                    className="mt-1 text-center form-control w-75" 
-                                />
-                                <div className="mt-1 btn btn-danger">X</div>
+                            {this.state.imgAndIllus.map((feild,id) => {
+                                return(
+                                    <div key={id}>
+                                        {feild.element}
+                                    </div>
+                                )
+                            })}
+                            <div className="mt-3 btn btn-dark" onClick={this.handleAddImageAndIllustration}>
+                                Add image or illustration
                             </div>
                         </div>
                     </div>
