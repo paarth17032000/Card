@@ -12,6 +12,7 @@
     "react-draggable": "^4.4.3",
     "react-icons": "^4.1.0",
     "react-resizable": "^1.11.0",
+    "react-resize-image": "^1.0.4",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },

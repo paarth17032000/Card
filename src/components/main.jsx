@@ -17,7 +17,8 @@ export default class Main extends Component {
             italics: [],
             underline: [],
             bg: "none",
-            // upldImg: '',
+            upldItems: [],
+            upldImg: '',
             align: [],
             imgAndIllus : [
                 {
@@ -27,7 +28,7 @@ export default class Main extends Component {
                             <input 
                                 type="file"
                                 name="0"
-                                // onChange={this.handle}
+                                onChange={this.handleUpldItems}
                                 // id="wallpaper"
                                 className="mt-1 text-center form-control w-75" 
                             />
@@ -281,12 +282,12 @@ export default class Main extends Component {
         // console.log(typeof this.state.keyVal);
     }
     handleWallpaper = (event) => {
-        var image = this.state.upldImg;
-        image = URL.createObjectURL(event.target.files[0]);
+        var src = this.state.upldImg;
+        src = URL.createObjectURL(event.target.files[0]);
         this.setState({
-            upldImg: image
+            upldImg: src
         })
-        console.log(image);
+        console.log(src);
     }
     handleAddImageAndIllustration = (e) => {
         let key = parseInt(this.state.keyImg + 1);
@@ -297,7 +298,7 @@ export default class Main extends Component {
                     <input 
                         type="file"
                         name={key}
-                        // onChange={this.handle}
+                        onChange={this.handleUpldItems}
                         // id="wallpaper"
                         className="text-center form-control w-75" 
                     />
@@ -317,6 +318,13 @@ export default class Main extends Component {
             imgAndIllus: newArr
         })
         // console.log(e.target.id,newArr);
+    }
+    handleUpldItems = (event) => {
+        let src = URL.createObjectURL(event.target.files[0]);
+        this.setState({
+            upldItems: [...this.state.upldItems,src]
+        })
+        console.log(this.state.upldItems);
     }
     render() {
         return (
