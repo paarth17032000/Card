@@ -287,7 +287,7 @@ export default class Main extends Component {
         this.setState({
             upldImg: src
         })
-        console.log(src);
+        // console.log(src);
     }
     handleAddImageAndIllustration = (e) => {
         let key = parseInt(this.state.keyImg + 1);
@@ -314,8 +314,10 @@ export default class Main extends Component {
     handleClose = (e) => {
         let id = parseInt(e.target.id);
         let newArr = this.state.imgAndIllus.filter(element => id !== element.key);
+        // let newUpldItemsArr = this.state.upldItems.splice(id,1);
         this.setState({
-            imgAndIllus: newArr
+            imgAndIllus: newArr,
+            // upldItems: newUpldItemsArr
         })
         // console.log(e.target.id,newArr);
     }
@@ -324,7 +326,7 @@ export default class Main extends Component {
         this.setState({
             upldItems: [...this.state.upldItems,src]
         })
-        console.log(this.state.upldItems);
+        // console.log(this.state.upldItems);
     }
     render() {
         return (
