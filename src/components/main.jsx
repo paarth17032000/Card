@@ -16,7 +16,7 @@ export default class Main extends Component {
             bold: [],
             italics: [],
             underline: [],
-            bg: "none",
+            // bg: "none",
             upldItems: [],
             upldImg: '',
             align: [],
@@ -209,12 +209,12 @@ export default class Main extends Component {
         }
         // console.log(3,e.target.id);
     }
-    handleBackground = (e) => {
-        this.setState({
-            bg: e.target.value
-        })
-        // console.log(this.state.bg);
-    }
+    // handleBackground = (e) => {
+    //     this.setState({
+    //         bg: e.target.value
+    //     })
+    //     // console.log(this.state.bg);
+    // }
     handleAlign = (e) => {
         let alignArr = this.state.align;
             alignArr[parseInt(e.target.name)] = e.target.value;
@@ -350,7 +350,7 @@ export default class Main extends Component {
                                     className="mt-3 ml-2 text-center form-control w-50" 
                                 />
                             </div>
-                            <select
+                            {/* <select
                                 onChange={this.handleBackground}
                                 placeholder="Select Background"
                                 className="mt-3 text-center form-control w-75" 
@@ -366,7 +366,7 @@ export default class Main extends Component {
                                 <option>Triangles</option>
                                 <option>Mexican-Folk</option>
                                 <option>Stars</option>
-                            </select>
+                            </select> */}
                             {this.state.feilds.map((element,id) => {
                                 return(
                                     <div key={id} className="line w-75">
@@ -415,7 +415,7 @@ export default class Main extends Component {
                                 style={{
                                     width: `${this.state.width}`,
                                     height: `${this.state.height}`,
-                                    // background: `url(${this.state.upldImg})`,
+                                    background: `url(${this.state.upldImg})`,
                                     backgroundRepeat: 'no-repeat',
                                     backgroundSize: 'cover',
                                     backgroundAttachment: 'fixed'
