@@ -208,13 +208,7 @@ export default class Main extends Component {
             // })
         }
         // console.log(3,e.target.id);
-    }
-    // handleBackground = (e) => {
-    //     this.setState({
-    //         bg: e.target.value
-    //     })
-    //     // console.log(this.state.bg);
-    // }
+    }=
     handleAlign = (e) => {
         let alignArr = this.state.align;
             alignArr[parseInt(e.target.name)] = e.target.value;
@@ -350,23 +344,6 @@ export default class Main extends Component {
                                     className="mt-3 ml-2 text-center form-control w-50" 
                                 />
                             </div>
-                            {/* <select
-                                onChange={this.handleBackground}
-                                placeholder="Select Background"
-                                className="mt-3 text-center form-control w-75" 
-                            >
-                                <option>none</option>
-                                <option>Cake</option>
-                                <option>Party</option>
-                                <option>Colors</option>
-                                <option>Side-Style</option>
-                                <option>Decor</option>
-                                <option>Rangoli</option>
-                                <option>Scenery</option>
-                                <option>Triangles</option>
-                                <option>Mexican-Folk</option>
-                                <option>Stars</option>
-                            </select> */}
                             {this.state.feilds.map((element,id) => {
                                 return(
                                     <div key={id} className="line w-75">
