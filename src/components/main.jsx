@@ -10,13 +10,11 @@ export default class Main extends Component {
             width: "400px",
             height: "400px",
             text: [],
-            // val: null,
             font: [],
             color: [],
             bold: [],
             italics: [],
             underline: [],
-            // bg: "none",
             upldItems: [],
             upldImg: '',
             align: [],
@@ -208,7 +206,7 @@ export default class Main extends Component {
             // })
         }
         // console.log(3,e.target.id);
-    }=
+    }
     handleAlign = (e) => {
         let alignArr = this.state.align;
             alignArr[parseInt(e.target.name)] = e.target.value;
