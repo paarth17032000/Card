@@ -305,13 +305,13 @@ export default class Main extends Component {
     }
     handleClose = (e) => {
         let id = parseInt(e.target.id);
-        let newArr = this.state.imgAndIllus.filter(element => id !== element.key);
+        let newArr = this.state.imgAndIllus.filter(element => id === element.key);
         // let newUpldItemsArr = this.state.upldItems.splice(id,1);
         this.setState({
             imgAndIllus: newArr,
             // upldItems: newUpldItemsArr
         })
-        // console.log(e.target.id,newArr);
+        console.log(e.target.id,newArr);
     }
     handleUpldItems = (event) => {
         let src = URL.createObjectURL(event.target.files[0]);
