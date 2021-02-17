@@ -88,6 +88,7 @@ export default class Main extends Component {
             keyVal: 0,
         }
     }
+    // methods defined
     handleWidth = (e) => {
         let width = `${e.target.value}px`;
         this.setState({
