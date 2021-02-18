@@ -383,7 +383,7 @@ export default class Main extends Component {
                             </div>
                         </div>
                     </div>
-
+                    {/* white space to display everything */}
                     <div className="col-xl-9 col-lg-8 col-md-8 d-flex flex-row justify-content-center align-items-center">
                         <div className="my-4">
                             <div 
