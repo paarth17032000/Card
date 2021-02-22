@@ -3,10 +3,10 @@ import Drag from './drag'
 import './coverimage.css'
 
 export default class Main extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.componentRef = React.createRef();
-        this.state={
+        this.state = {
             width: "400px",
             height: "400px",
             text: [],
@@ -18,17 +18,17 @@ export default class Main extends Component {
             upldItems: [],
             upldImg: '',
             align: [],
-            imgAndIllus : [
+            imgAndIllus: [
                 {
                     key: 0,
                     element: (
                         <div className="d-flex flex-row justify-content-around w-100 mx-auto">
-                            <input 
+                            <input
                                 type="file"
                                 name="0"
                                 onChange={this.handleUpldItems}
-                                // id="wallpaper"
-                                className="mt-1 text-center form-control w-75" 
+                                id="wallpaper"
+                                className="mt-1 text-center form-control w-75"
                             />
                             <div className="mt-1 btn btn-danger" id="0" onClick={this.handleClose}>X</div>
                         </div>
@@ -39,16 +39,16 @@ export default class Main extends Component {
             feilds: [
                 {
                     key: 0,
-                    text:(
-                        <input 
+                    text: (
+                        <input
                             type="text"
                             name="0"
                             onChange={this.handleText}
                             placeholder="Enter Text"
-                            className="mt-3 text-center form-control w-75 mx-auto" 
+                            className="mt-3 text-center form-control w-75 mx-auto"
                         />
                     ),
-                    utilities:(
+                    utilities: (
                         <div className="mt-3 d-flex flex-row justify-content-around w-75  mx-auto">
                             <input type="button" className="btn btn-dark" id="false" name="0" onClick={this.handleBold} value="B" />
                             <input type="button" className="btn btn-dark" id="false" name="0" onClick={this.handleItalics} value="I" />
@@ -57,24 +57,24 @@ export default class Main extends Component {
                                 onChange={this.handleAlign}
                                 name="0"
                                 // placeholder="Select Background"
-                                className="text-center form-control w-25 text-dark" 
+                                className="text-center form-control w-25 text-dark"
                             >
                                 <option>Left</option>
                                 <option>Center</option>
                                 <option>Right</option>
                             </select>
-                        </div> 
+                        </div>
                     ),
-                    fontAndColor:(
+                    fontAndColor: (
                         <div id="line" className="mt-3 d-flex flex-row justify-content-around w-100">
-                            <input 
+                            <input
                                 type="text"
                                 name="0"
                                 onChange={this.handleFont}
                                 placeholder="Font Size(in px)"
-                                className="text-center form-control w-50" 
+                                className="text-center form-control w-50"
                             />
-                            <input 
+                            <input
                                 type="color"
                                 name="0"
                                 onChange={this.handleColor}
@@ -106,7 +106,7 @@ export default class Main extends Component {
     handleText = (e) => {
         // let newText = e.target.value;
         let textArr = this.state.text;
-        textArr[parseInt(e.target.name)] = e.target.value; 
+        textArr[parseInt(e.target.name)] = e.target.value;
         // console.log(1,this.state.text);
         this.setState({
             // text: [...this.state.text, newText]
@@ -117,7 +117,7 @@ export default class Main extends Component {
     handleFont = (e) => {
         // let newFont = e.target.value;
         let fontArr = this.state.font;
-        fontArr[parseInt(e.target.name)] = e.target.value; 
+        fontArr[parseInt(e.target.name)] = e.target.value;
         this.setState({
             // font: [...this.state.font, newFont]
             font: fontArr
@@ -127,15 +127,15 @@ export default class Main extends Component {
     handleColor = (e) => {
         // let newColor = e.target.value;
         let colorArr = this.state.color;
-        colorArr[parseInt(e.target.name)] = e.target.value; 
+        colorArr[parseInt(e.target.name)] = e.target.value;
         this.setState({
             // color: [...this.state.color, newColor]
             color: colorArr
         })
-        console.log(1.00,e.target.name);
+        console.log(1.00, e.target.name);
     }
     handleBold = (e) => {
-        if(e.target.id === "false"){
+        if (e.target.id === "false") {
             e.target.id = "true";
             // let bold = "bold";
             let boldArr = this.state.bold;
@@ -145,7 +145,7 @@ export default class Main extends Component {
             })
             // console.log(boldArr,e.target.name);
             console.log(e.target.name);
-        }else{
+        } else {
             e.target.id = "false";
             // let bold = "normal";
             let boldArr = this.state.bold;
@@ -156,7 +156,7 @@ export default class Main extends Component {
         }
     }
     handleItalics = (e) => {
-        if(e.target.id === "false"){
+        if (e.target.id === "false") {
             e.target.id = "true";
             // let italics = "italic";
             let italicsArr = this.state.italics;
@@ -168,7 +168,7 @@ export default class Main extends Component {
             // this.setState({
             //     italics
             // })
-        }else{
+        } else {
             e.target.id = "false";
             // let italics = "normal";
             let italicsArr = this.state.italics;
@@ -183,7 +183,7 @@ export default class Main extends Component {
         // console.log(3,e.target.id);
     }
     handleUnderline = (e) => {
-        if(e.target.id === "false"){
+        if (e.target.id === "false") {
             e.target.id = "true";
             // let underline = "underline";
             let underlineArr = this.state.underline;
@@ -194,7 +194,7 @@ export default class Main extends Component {
             // this.setState({
             //     underline
             // })
-        }else{
+        } else {
             e.target.id = "false";
             // let underline = "none";
             let underlineArr = this.state.underline;
@@ -210,10 +210,10 @@ export default class Main extends Component {
     }
     handleAlign = (e) => {
         let alignArr = this.state.align;
-            alignArr[parseInt(e.target.name)] = e.target.value;
-            this.setState({
-                align: alignArr
-            })
+        alignArr[parseInt(e.target.name)] = e.target.value;
+        this.setState({
+            align: alignArr
+        })
         // this.setState({
         //     align: e.target.value
         // })
@@ -223,16 +223,16 @@ export default class Main extends Component {
         let key = parseInt(this.state.keyVal + 1);
         let newFeild = {
             key: key,
-            text:(
-                <input 
+            text: (
+                <input
                     type="text"
                     name={key}
                     onChange={this.handleText}
                     placeholder="Enter Text"
-                    className="mt-3 text-center form-control w-75 mx-auto" 
+                    className="mt-3 text-center form-control w-75 mx-auto"
                 />
             ),
-            utilities:(
+            utilities: (
                 <div className="mt-3 d-flex flex-row justify-content-around w-75 mx-auto">
                     <input type="button" className="btn btn-dark" id="false" name={key} onClick={this.handleBold} value="B" />
                     <input type="button" className="btn btn-dark" id="false" name={key} onClick={this.handleItalics} value="I" />
@@ -241,24 +241,24 @@ export default class Main extends Component {
                         onChange={this.handleAlign}
                         name={key}
                         // placeholder="Select Background"
-                        className="text-center form-control w-25 text-dark" 
+                        className="text-center form-control w-25 text-dark"
                     >
                         <option>Left</option>
                         <option>Center</option>
                         <option>Right</option>
                     </select>
-                </div> 
+                </div>
             ),
-            fontAndColor:(
+            fontAndColor: (
                 <div className="mt-3 d-flex flex-row justify-content-around w-100">
-                    <input 
+                    <input
                         type="text"
                         name={key}
                         onChange={this.handleFont}
                         placeholder="Font Size(in px)"
-                        className="text-center form-control w-50" 
+                        className="text-center form-control w-50"
                     />
-                    <input 
+                    <input
                         type="color"
                         name={key}
                         onChange={this.handleColor}
@@ -269,7 +269,7 @@ export default class Main extends Component {
             )
         }
         this.setState({
-            feilds: [...this.state.feilds,newFeild],
+            feilds: [...this.state.feilds, newFeild],
             keyVal: key
         })
         // console.log(typeof this.state.keyVal);
@@ -288,19 +288,19 @@ export default class Main extends Component {
             key: key,
             element: (
                 <div className="mt-2 d-flex flex-row justify-content-around w-100 mx-auto">
-                    <input 
+                    <input
                         type="file"
                         name={key}
                         onChange={this.handleUpldItems}
                         // id="wallpaper"
-                        className="text-center form-control w-75" 
+                        className="text-center form-control w-75"
                     />
                     <div className="btn btn-danger" id={key} onClick={this.handleClose}>X</div>
                 </div>
             )
         }
         this.setState({
-            imgAndIllus: [...this.state.imgAndIllus,newFeild],
+            imgAndIllus: [...this.state.imgAndIllus, newFeild],
             keyImg: key
         })
     }
@@ -312,12 +312,12 @@ export default class Main extends Component {
             imgAndIllus: newArr,
             // upldItems: newUpldItemsArr
         })
-        console.log(e.target.id,newArr);
+        console.log(e.target.id, newArr);
     }
     handleUpldItems = (event) => {
         let src = URL.createObjectURL(event.target.files[0]);
         this.setState({
-            upldItems: [...this.state.upldItems,src]
+            upldItems: [...this.state.upldItems, src]
         })
         // console.log(this.state.upldItems);
     }
@@ -330,21 +330,21 @@ export default class Main extends Component {
                             <h2>Wishes</h2>
                             <h6 className="mt-2">Hoping to help you make anything<br />according to you</h6>
                             <div className="d-flex flex-row justify-content-around w-100">
-                                <input 
+                                <input
                                     type="text"
                                     onChange={this.handleWidth}
                                     placeholder="Enter Width"
-                                    className="mt-3 mr-2 text-center form-control w-50" 
+                                    className="mt-3 mr-2 text-center form-control w-50"
                                 />
-                                <input 
+                                <input
                                     type="text"
                                     onChange={this.handleHeight}
                                     placeholder="Enter Height"
-                                    className="mt-3 ml-2 text-center form-control w-50" 
+                                    className="mt-3 ml-2 text-center form-control w-50"
                                 />
                             </div>
-                            {this.state.feilds.map((element,id) => {
-                                return(
+                            {this.state.feilds.map((element, id) => {
+                                return (
                                     <div key={id} className="line w-75">
                                         {element.text}
                                         {element.utilities}
@@ -352,7 +352,7 @@ export default class Main extends Component {
                                     </div>
                                 )
                             })}
-                            <div 
+                            <div
                                 className="mt-4 btn btn-dark w-75"
                                 onClick={this.handleAddFeild}
                             >
@@ -361,18 +361,18 @@ export default class Main extends Component {
                             {/* image as bg */}
                             <h5 className="mt-3">-- choose for bg --</h5>
                             <div className="d-flex flex-row justify-content-around w-100 mx-auto">
-                                <input 
+                                <input
                                     type="file"
                                     onChange={this.handleWallpaper}
                                     // id="wallpaper"
-                                    className="mt-1 text-center form-control w-75" 
+                                    className="mt-1 text-center form-control w-75"
                                 />
-                                <div className=" mt-1 btn btn-danger">X</div>
+                                {/* <div className=" mt-1 btn btn-danger">X</div> */}
                             </div>
                             {/* image as image or illustration */}
                             <h5 className="mt-3">-- choose for illus --</h5>
-                            {this.state.imgAndIllus.map((feild,id) => {
-                                return(
+                            {this.state.imgAndIllus.map((feild, id) => {
+                                return (
                                     <div key={id}>
                                         {feild.element}
                                     </div>
@@ -383,23 +383,25 @@ export default class Main extends Component {
                             </div>
                         </div>
                     </div>
+
                     {/* white space to display everything */}
                     <div className="col-xl-9 col-lg-8 col-md-8 d-flex flex-row justify-content-center align-items-center">
                         <div className="my-4">
-                            <div 
+                            <div
                                 className={`border img-fluid ${this.state.bg}`}
+                                id="wallpaper"
                                 style={{
                                     width: `${this.state.width}`,
                                     height: `${this.state.height}`,
-                                    background: `url(${this.state.upldImg})`,
+                                    backgroundImage: `url(${this.state.upldImg})`,
                                     backgroundRepeat: 'no-repeat',
                                     backgroundSize: 'cover',
-                                    backgroundAttachment: 'fixed'
-                                }} 
-                            >  
+                                    backgroundPosition: 'center'
+                                }}
+                            >
                                 <Drag ref={this.componentRef} data={this.state} />
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
