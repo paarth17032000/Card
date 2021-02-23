@@ -292,7 +292,7 @@ export default class Main extends Component {
                         type="file"
                         name={key}
                         onChange={this.handleUpldItems}
-                        // id="wallpaper"
+                        id="wallpaper"
                         className="text-center form-control w-75"
                     />
                     <div className="btn btn-danger" id={key} onClick={this.handleClose}>X</div>
@@ -303,23 +303,26 @@ export default class Main extends Component {
             imgAndIllus: [...this.state.imgAndIllus, newFeild],
             keyImg: key
         })
+        console.log(this.state.keyImg);
     }
     handleClose = (e) => {
         let id = parseInt(e.target.id);
-        let newArr = this.state.imgAndIllus.filter(element => id === element.key);
-        // let newUpldItemsArr = this.state.upldItems.splice(id,1);
+        let newArr = this.state.imgAndIllus.filter(element => id !== element.key);
+        let newUpldItemsArr = Array.from(this.state.upldItems);
+        newUpldItemsArr = newUpldItemsArr.splice(id,0);
+        console.log(newUpldItemsArr);
         this.setState({
             imgAndIllus: newArr,
-            // upldItems: newUpldItemsArr
+            upldItems: newUpldItemsArr
         })
-        console.log(e.target.id, newArr);
+        console.log(e.target.id,typeof newArr, typeof newUpldItemsArr);
     }
     handleUpldItems = (event) => {
         let src = URL.createObjectURL(event.target.files[0]);
         this.setState({
             upldItems: [...this.state.upldItems, src]
         })
-        // console.log(this.state.upldItems);
+        console.log(this.state.upldItems);
     }
     render() {
         return (
