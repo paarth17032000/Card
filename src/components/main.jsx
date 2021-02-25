@@ -16,6 +16,7 @@ export default class Main extends Component {
             italics: [],
             underline: [],
             upldItems: [],
+            keyItems: 0,
             upldImg: '',
             align: [],
             imgAndIllus: [
@@ -308,19 +309,25 @@ export default class Main extends Component {
     handleClose = (e) => {
         let id = parseInt(e.target.id);
         let newArr = this.state.imgAndIllus.filter(element => id !== element.key);
-        let newUpldItemsArr = Array.from(this.state.upldItems);
-        newUpldItemsArr = newUpldItemsArr.splice(id,0);
-        console.log(newUpldItemsArr);
+        let newUpldItemsArr = this.state.upldItems.filter(element => id !== element.key );
+        // console.log(this.state.upldItems);
         this.setState({
             imgAndIllus: newArr,
             upldItems: newUpldItemsArr
         })
-        console.log(e.target.id,typeof newArr, typeof newUpldItemsArr);
+        // console.log(e.target.id,typeof newArr, typeof newUpldItemsArr);
     }
     handleUpldItems = (event) => {
         let src = URL.createObjectURL(event.target.files[0]);
+        let key = parseInt(this.state.keyItems);
+        let newObject = {
+            key: key,
+            src: src
+        }
+        key = key + 1;
         this.setState({
-            upldItems: [...this.state.upldItems, src]
+            upldItems: [...this.state.upldItems, newObject],
+            keyItems : key
         })
         console.log(this.state.upldItems);
     }

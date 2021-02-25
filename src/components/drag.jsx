@@ -45,7 +45,7 @@ export default class Drag extends Component {
 
         var upldItems;
         if(data.upldItems.length){
-            upldItems = data.upldItems.map((src,key) => {
+            upldItems = data.upldItems.map((obj,key) => {
                 return(
                     <div key={key}>
                         <Draggable
@@ -60,7 +60,7 @@ export default class Drag extends Component {
                                 maxConstraints={[Infinity,Infinity]}
                                 style={{position: "absolute", top: 0, cursor:"grab", zIndex: 10}}
                             >
-                                <img src={src} width={75} height={75} alt="img"/>                            
+                                <img src={obj.src} width={75} height={75} alt="img"/>                            
                             </ResizableBox>
                         </Draggable>
                     </div>
