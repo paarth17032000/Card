@@ -310,12 +310,10 @@ export default class Main extends Component {
         let id = parseInt(e.target.id);
         let newArr = this.state.imgAndIllus.filter(element => id !== element.key);
         let newUpldItemsArr = this.state.upldItems.filter(element => id !== element.key );
-        // console.log(this.state.upldItems);
         this.setState({
             imgAndIllus: newArr,
             upldItems: newUpldItemsArr
         })
-        // console.log(e.target.id,typeof newArr, typeof newUpldItemsArr);
     }
     handleUpldItems = (event) => {
         let src = URL.createObjectURL(event.target.files[0]);
