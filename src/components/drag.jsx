@@ -13,7 +13,8 @@ export default class Drag extends Component {
                 <div key={key}>
                     <Draggable 
                         axis="both"
-                        handle=".handle"
+                        handle=".handle" 
+                        bounds="parent"
                     >
                         <ResizableBox
                             className="box"
@@ -58,7 +59,7 @@ export default class Drag extends Component {
                                 height={100}
                                 minConstraints={[50,50]}
                                 maxConstraints={[Infinity,Infinity]}
-                                style={{position: "absolute", top: 0, cursor:"grab", zIndex: 10}}
+                                style={{position: "absolute", top: 0, cursor:"grab", zIndex: 15}}
                             >
                                 <img src={obj.src} width={75} height={75} alt="img"/>                            
                             </ResizableBox>
