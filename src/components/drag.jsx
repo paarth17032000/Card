@@ -44,6 +44,7 @@ export default class Drag extends Component {
             )
         });
 
+// to create uploaded images or illustrations
         var upldItems;
         if(data.upldItems.length){
             upldItems = data.upldItems.map((obj,key) => {
