@@ -389,6 +389,18 @@ export default class Main extends Component {
                             <div className="mt-3 btn btn-dark" onClick={this.handleAddImageAndIllustration}>
                                 Add image or illustration
                             </div>
+                            <select
+                                // onChange={this.handleAlign}
+                                // name={key}
+                                value="download"
+                                className="text-center form-control w-25 text-dark mt-3"
+                            >
+                                <option>JPG</option>
+                                <option>PNG</option>
+                            </select>
+                            <div className="mt-3 btn btn-dark" onClick={this.handleDownload}>
+                                Download
+                            </div>
                         </div>
                     </div>
 
