@@ -390,8 +390,6 @@ export default class Main extends Component {
                                 Add image or illustration
                             </div>
                             <select
-                                // onChange={this.handleAlign}
-                                // name={key}
                                 value="download"
                                 className="text-center form-control w-25 text-dark mt-3"
                             >
