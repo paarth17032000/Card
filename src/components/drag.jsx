@@ -80,28 +80,36 @@ import './coverimage.css'
 // }
 
 export default class Drag extends Component {
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //         width: 100,
+    //         height: 100,
+    //         absoluteWidth: [],
+    //         absoluteHeight: [],
+    //         keyGen: 0
+    //     }
+    // } 
     state = {
         width: 200,
         height: 200,
         absoluteWidth: 200,
         absoluteHeight: 200,
-        absoluteLeft: 0,
-        absoluteTop: 0,
+        keyGen: 0,
     }
-    // handleResize = (event, {element, size, handle}) => {
-    //     this.setState({
-    //         width: size.width,
-    //         height: size.height
-    //     })
-    // }
     onResizeAbsolute = (event, {element, size, handle}) => {
+        // console.log(event);
+        console.log(1,parseInt(event.target.parentNode.parentNode.key));
+        // let key = this.props.upldItems;
         this.setState((state) => {
+          let keyGen = state.keyGen;
+        //   console.log(state.keyGen);
           let newLeft = state.absoluteLeft;
           let newTop = state.absoluteTop;
           const deltaHeight = size.height - state.absoluteHeight;
           const deltaWidth = size.width - state.absoluteWidth;
           if (handle[0] === 'n') {
-            newTop -= deltaHeight;
+            newTop= deltaHeight;
           } else if (handle[0] === 's') {
             newTop += deltaHeight;
           }
@@ -110,12 +118,13 @@ export default class Drag extends Component {
           } else if (handle[handle.length - 1] === 'e') {
             newLeft += deltaWidth;
           }
-    
+          
           return {
+            // absoluteWidth: [...state.absoluteWidth,size.width[keyGen]],
+            // absoluteHeight: [...state.absoluteHeight,size.height[keyGen]],
+            // keyGen: keyGen + 1
             absoluteWidth: size.width,
-            absoluteHeight: size.height,
-            absoluteLeft: newLeft,
-            absoluteTop: newTop,
+            absoluteHeight: size.height
           };
         });
       };
@@ -173,9 +182,10 @@ export default class Drag extends Component {
                                 width={this.state.absoluteWidth}
                                 height={this.state.absoluteHeight}
                                 onResize={this.onResizeAbsolute}
+                                // id={this.state.keyGen}
                                 resizeHandles={['se']}
-                                // minConstraints={[50,50]}
-                                // maxConstraints={[Infinity,Infinity]}
+                                minConstraints={[50,50]}
+                                maxConstraints={[Infinity,Infinity]}
                                 style={{
                                     position: "absolute",
                                     top: 0,
@@ -190,8 +200,6 @@ export default class Drag extends Component {
                                         width: `${this.state.absoluteWidth}px`,
                                         height: `${this.state.absoluteHeight}ps`
                                     }}
-                                    // width={this.state.width} 
-                                    // height={this.state.height} 
                                     alt="img"/>     
                             </ResizableBox>
                         </Draggable>
