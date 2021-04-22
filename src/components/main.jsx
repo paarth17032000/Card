@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import Drag from './drag'
 import './coverimage.css'
+import Download from './Download'
 
 export default class Main extends Component {
     constructor(props) {
         super(props);
         this.componentRef = React.createRef();
+
         this.state = {
             width: "400px",
             height: "400px",
@@ -16,6 +18,7 @@ export default class Main extends Component {
             italics: [],
             underline: [],
             upldItems: [],
+            downloadChoice: null,
             keyItems: 0,
             upldImg: '',
             align: [],
@@ -329,13 +332,19 @@ export default class Main extends Component {
         })
         console.log(this.state.upldItems);
     }
+    // handleDownloadChoice = (e) => {
+    //     console.log(e.target.value);
+    //     this.setState({
+    //         downloadChoice: e.target.value
+    //     })
+    // }
     render() {
         return (
             <div className="container-fluid">
                 <div className="row mx-auto">
                     <div className="col-xl-3 col-lg-4 col-md-4 border mt-4">
                         <div className="my-4 text-center d-flex flex-column align-items-center">
-                            <h2>Wishes</h2>
+                            <h2>Creator</h2>
                             <h6 className="mt-2">Hoping to help you make anything<br />according to you</h6>
                             <div className="d-flex flex-row justify-content-around w-100">
                                 <input
@@ -390,15 +399,23 @@ export default class Main extends Component {
                                 Add image or illustration
                             </div>
                             <select
-                                value="download"
+                                // value="download"
+                                // onClick={this.handleDownloadChoice}
+                                onClick = {(e) => {
+                                    console.log(e.target.value)
+                                    this.setState({
+                                        downloadChoice: e.target.value
+                                    })
+                                }}
                                 className="text-center form-control w-25 text-dark mt-3"
                             >
-                                <option>JPG</option>
-                                <option>PNG</option>
+                                
+                                <option value="PNG">PNG</option>
+                                <option value="JPG">JPG</option>
+                                
                             </select>
-                            <div className="mt-3 btn btn-dark" onClick={this.handleDownload}>
-                                Download
-                            </div>
+                            <Download options={this.state} compref={this.componentRef}/>
+                            
                         </div>
                     </div>
 
