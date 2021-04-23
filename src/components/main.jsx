@@ -343,7 +343,7 @@ export default class Main extends Component {
             <div className="container-fluid">
                 <div className="row mx-auto">
                     <div className="col-xl-3 col-lg-4 col-md-4 border mt-4">
-                        <div className="my-4 text-center d-flex flex-column align-items-center">
+                        <div className="mt-4 mb-4 text-center d-flex flex-column align-items-center">
                             <h2>Creator</h2>
                             <h6 className="mt-2">Hoping to help you make anything<br />according to you</h6>
                             <div className="d-flex flex-row justify-content-around w-100">
@@ -420,7 +420,7 @@ export default class Main extends Component {
                     </div>
 
                     {/* white space to display everything */}
-                    <div className="col-xl-9 col-lg-8 col-md-8 d-flex flex-row justify-content-center align-items-center">
+                    <div className="col-xl-9 col-lg-8 col-md-8 d-flex flex-row justify-content-center mt-5">
                         <div className="my-4">
                             <div
                                 className={`border img-fluid ${this.state.bg}`}

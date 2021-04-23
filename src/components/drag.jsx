@@ -47,16 +47,16 @@ export default class Drag extends Component {
                         axis="both"
                         handle=".handle" 
                         // bounds="parent"
-                        style={{position: "absolute", top: 0, cursor:"grab", zIndex: 10}}
+                        // style={{position: "absolute", top: 0, cursor:"grab", zIndex: 10}}
                     >
                         <ResizableBox
                             className="box"
                             width={100}
                             height={100}
-                            minConstraints={[50,50]}
-                            maxConstraints={[Infinity,Infinity]}
-                            // style={{position: "absolute", top: 0, cursor:"grab", zIndex: 10}}
-                        >{text}
+                            // minConstraints={[50,50]}
+                            // maxConstraints={[Infinity,Infinity]}
+                            style={{position: "absolute", top: '2.5%', cursor:"grab", zIndex: 10}}
+                        >
                             <div 
                                 className="handle"
                                 style={{fontSize: `${data.font[key]}px`,
