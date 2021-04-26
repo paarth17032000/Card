@@ -18,7 +18,7 @@ export default class Main extends Component {
             italics: [],
             underline: [],
             upldItems: [],
-            downloadChoice: null,
+            downloadChoice: 'PNG',
             keyItems: 0,
             upldImg: '',
             align: [],
@@ -90,8 +90,9 @@ export default class Main extends Component {
                 }
             ],
             keyVal: 0,
+            tobeDownloaded: <Drag data={this.state} />,
         }
-    }
+    };
     // methods defined
     handleWidth = (e) => {
         let width = `${e.target.value}px`;
@@ -339,6 +340,12 @@ export default class Main extends Component {
     //     })
     // }
     render() {
+    console.log(this.state.tobeDownloaded)
+        // let upldArr = this.state.upldField
+        //     .filter((ele) => ele !== undefined)
+        //     .map((ele) => ele.renderEle);
+        // console.log(upldArr);
+        console.log(this.state.imgAndIllus)
         return (
             <div className="container-fluid">
                 <div className="row mx-auto">
@@ -388,13 +395,14 @@ export default class Main extends Component {
                             </div>
                             {/* image as image or illustration */}
                             <h5 className="mt-3">-- choose for illus --</h5>
-                            {this.state.imgAndIllus.map((feild, id) => {
+                            {this.state.imgAndIllus.map((feild) => {
                                 return (
-                                    <div key={id}>
+                                    <div key={feild.key}>
                                         {feild.element}
                                     </div>
                                 )
                             })}
+                            
                             <div className="mt-3 btn btn-dark" onClick={this.handleAddImageAndIllustration}>
                                 Add image or illustration
                             </div>
@@ -415,7 +423,7 @@ export default class Main extends Component {
                                 
                             </select>
                             <Download options={this.state} compref={this.componentRef}/>
-                            
+                            {/* {console.log(this.componentRef)} */}
                         </div>
                     </div>
 
@@ -434,6 +442,7 @@ export default class Main extends Component {
                                     backgroundPosition: 'center'
                                 }}
                             >
+                                
                                 <Drag ref={this.componentRef} data={this.state} />
                             </div>
                         </div>
