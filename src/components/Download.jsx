@@ -15,15 +15,47 @@ export default class Download extends Component {
         console.log(this.props.compref)
         // exportComponentAsPNG(this.props.compref)
         return (
-            <input
+            <div 
+                // ref={this.props.compref}
+            >
+                <input
                 type="button"
                 onClick={() => {
-                    options.downloadChoice === "PNG" ? exportComponentAsPNG(this.props.compref) : exportComponentAsJPEG(this.props.compref)
-                    {console.log(exportComponentAsPNG(this.props.compref))}
-                }} 
+                    options.downloadChoice === "PNG"
+                    ? exportComponentAsPNG(this.props.compref)
+                    : exportComponentAsJPEG(this.props.compref);
+                    {
+                    console.log(exportComponentAsPNG(this.props.compref));
+                    }
+                }}
                 className="mt-3 btn btn-dark"
                 value="Download"
-            />
+                />
+            </div>
+            // <div ref={this.props.compref}>
+            //     <input
+            //     type="button"
+            //     onClick={() => {
+            //         options.downloadChoice === "PNG"
+            //         ? exportComponentAsPNG(this.props.compref)
+            //         : exportComponentAsJPEG(this.props.compref);
+            //         {
+            //         console.log(exportComponentAsPNG(this.props.compref));
+            //         }
+            //     }}
+            //     className="mt-3 btn btn-dark"
+            //     value="Download"
+            //     />
+            // </div>
+            // <input
+            //     type="button"
+            //     onClick={() => {
+            //         options.downloadChoice === "PNG" ? exportComponentAsPNG(this.props.compref) : exportComponentAsJPEG(this.props.compref)
+            //         {console.log(exportComponentAsPNG(this.props.compref))}
+            //     }} 
+            //     className="mt-3 btn btn-dark"
+            //     value="Download"
+            // />
         );
     }
 }

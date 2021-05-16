@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Drag from './drag'
+import Dra from './dra'
 import './coverimage.css'
 import Download from './Download'
 
@@ -442,8 +443,8 @@ export default class Main extends Component {
                                     backgroundPosition: 'center'
                                 }}
                             >
-                                
                                 <Drag ref={this.componentRef} data={this.state} />
+                                {/* <Dra ref={this.componentRef} data={this.state} /> */}
                             </div>
                         </div>
                     </div>
