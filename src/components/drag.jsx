@@ -125,6 +125,7 @@ export default class Drag extends Component {
         <img
           className={`border ${this.state.bg}`}
           id="wallpaper"
+          alt="place to design your own thoughts"
           src={data.upldImg? data.upldImg: Birthday}
           width={data.width ? data.width + "px" : "800px"}
           height={data.height ? data.height + "px" : "800px"}          

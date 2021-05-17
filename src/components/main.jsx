@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Drag from './drag'
-import Dra from './dra'
+// import Dra from './dra'
 import './coverimage.css'
 import Download from './Download'
 
