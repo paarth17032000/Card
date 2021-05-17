@@ -5,7 +5,7 @@ import "react-resizable/css/styles.css";
 import "./coverimage.css";
 import Birthday from "../images/birthday_cake.jpg";
 
-export default class Dra extends Component {    
+export default class Drag extends Component {    
   state = {
     width: 200,
     height: 200,
