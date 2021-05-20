@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Drag from './drag'
-// import Dra from './dra'
-import './coverimage.css'
 import Download from './Download'
 
 export default class Main extends Component {

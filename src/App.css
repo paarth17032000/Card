@@ -1,0 +1,10 @@
+.Cake{
+    background: url('./images/birthday_cake.jpg') no-repeat fixed ;
+    background-size: cover;
+}
+
+/* rule in main.js */
+.line{
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}

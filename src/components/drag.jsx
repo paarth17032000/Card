@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Draggable from "react-draggable";
 import { ResizableBox } from "react-resizable";
 import "react-resizable/css/styles.css";
-import "./coverimage.css";
 import Birthday from "../images/birthday_cake.jpg";
 
 export default class Drag extends Component {    
