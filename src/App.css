@@ -1,10 +1,45 @@
-.Cake{
-    background: url('./images/birthday_cake.jpg') no-repeat fixed ;
-    background-size: cover;
-}
-
 /* rule in main.js */
 .line{
     padding-bottom: 25px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+input[type="file"]{
+    padding-bottom: 35px;
+}
+
+.preview {
+    /* border: 1px solid rgba(0, 0, 0, 0.125);
+    margin: 20%; */
+    position: relative;
+    height: 100%;
+    /* width: 100%; */
+}
+
+
+/* used to show resize handlers and help in hidding handlers */
+
+.react-resizable {
+position: relative;
+width: 100%;
+height: 100%;
+}
+.react-resizable-handle {
+position: absolute;
+width: 12px;
+height: 12px;
+background-repeat: no-repeat;
+background-origin: content-box;
+box-sizing: border-box;
+color: white;
+background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+");
+background-position: bottom right;
+padding: 0 3px 3px 0;
+}
+
+.react-resizable-handle-se {
+bottom: 0;
+right: 0;
+cursor: se-resize;
+}
+  

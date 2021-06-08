@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <div if="footer" variant="dark" className="bg-dark mt-4 p-2 fixed-bottom">
-            <div className="text-center text-white">
+        <footer id="footer" variant="dark" className="bg-dark mt-4 fixed-bottom">
+            <div className="text-center pt-2 text-white">
                 <h6>Made with &#10084; by Paarth Agarwal</h6>
             </div>
-        </div>
+        </footer>
     )
 }

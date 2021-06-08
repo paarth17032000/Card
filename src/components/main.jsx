@@ -33,7 +33,9 @@ export default class Main extends Component {
                                 id="wallpaper"
                                 className="mt-1 text-center form-control w-75"
                             />
-                            <div className="mt-1 btn btn-danger" id="0" onClick={this.handleClose}>X</div>
+                            <div className="mt-1 btn btn-danger" id="0" onClick={this.handleClose}>
+                                <i className="fas fa-times pt-2"></i>
+                            </div>
                         </div>
                     )
                 }
@@ -53,13 +55,12 @@ export default class Main extends Component {
                     ),
                     utilities: (
                         <div className="mt-3 d-flex flex-row justify-content-around w-75  mx-auto">
-                            <input type="button" className="btn btn-dark" id="false" name="0" onClick={this.handleBold} value="B" />
+                            <input type="button" className="btn btn-dark" id="false" name="0" onClick={this.handleBold} value="B"/>
                             <input type="button" className="btn btn-dark" id="false" name="0" onClick={this.handleItalics} value="I" />
                             <input type="button" className="btn btn-dark" id="false" name="0" onClick={this.handleUnderline} value="U" />
                             <select
                                 onChange={this.handleAlign}
                                 name="0"
-                                // placeholder="Select Background"
                                 className="text-center form-control w-25 text-dark"
                             >
                                 <option>Left</option>
@@ -299,7 +300,9 @@ export default class Main extends Component {
                         id="wallpaper"
                         className="text-center form-control w-75"
                     />
-                    <div className="btn btn-danger" id={key} onClick={this.handleClose}>X</div>
+                    <div className="btn btn-danger" id={key} onClick={this.handleClose}>
+                        <i className="fas fa-times pt-2"></i>
+                    </div>
                 </div>
             )
         }
@@ -348,7 +351,7 @@ export default class Main extends Component {
         return (
             <div className="container-fluid">
                 <div className="row mx-auto">
-                    <div className="col-xl-3 col-lg-4 col-md-4 border mt-4">
+                    <div className="col-xl-4 col-lg-4 col-md-4 border mt-4 mb-5">
                         <div className="mt-4 mb-4 text-center d-flex flex-column align-items-center">
                             <h2>Creator</h2>
                             <h6 className="mt-2">Hoping to help you make anything<br />according to you</h6>
@@ -368,7 +371,7 @@ export default class Main extends Component {
                             </div>
                             {this.state.feilds.map((element, id) => {
                                 return (
-                                    <div key={id} className="line w-75">
+                                    <div key={id} className="line w-100">
                                         {element.text}
                                         {element.utilities}
                                         {element.fontAndColor}
@@ -427,7 +430,7 @@ export default class Main extends Component {
                     </div>
 
                     {/* white space to display everything */}
-                    <div className="col-xl-9 col-lg-8 col-md-8 d-flex flex-row justify-content-center mt-5">
+                    <div className="col-xl-8 col-lg-8 col-md-8 d-flex flex-row justify-content-center my-5">
                         <div className="my-4">
                             <div
                                 className={`border img-fluid ${this.state.bg}`}

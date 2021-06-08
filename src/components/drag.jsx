@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Draggable from "react-draggable";
 import { ResizableBox } from "react-resizable";
 import "react-resizable/css/styles.css";
-import Birthday from "../images/birthday_cake.jpg";
+import SampleImg from "../images/sample.png";
 
 export default class Drag extends Component {    
   state = {
@@ -118,14 +118,17 @@ export default class Drag extends Component {
       });
     }
     return (
-      <div>
+      <div className="preview">
         {details}
         {upldItems}
         <img
           className={`border ${this.state.bg}`}
           id="wallpaper"
+          // style={{
+          //   left: "-20%"
+          // }}
           alt="place to design your own thoughts"
-          src={data.upldImg? data.upldImg: Birthday}
+          src={data.upldImg? data.upldImg: SampleImg}
           width={data.width ? data.width + "px" : "800px"}
           height={data.height ? data.height + "px" : "800px"}          
         />
