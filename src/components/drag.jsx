@@ -122,11 +122,13 @@ export default class Drag extends Component {
         {details}
         {upldItems}
         <img
-          className={`border ${this.state.bg}`}
+        className="img-fluid mr-5"
+          // className={`border ${this.state.bg}`}
           id="wallpaper"
-          // style={{
-          //   left: "-20%"
-          // }}
+          style={{
+            width: "130%",
+            height: "100%"
+          }}
           alt="place to design your own thoughts"
           src={data.upldImg? data.upldImg: SampleImg}
           width={data.width ? data.width + "px" : "800px"}
