@@ -357,13 +357,13 @@ export default class Main extends Component {
                             <h6 className="mt-2">Hoping to help you make anything<br />according to you</h6>
                             <div className="d-flex flex-row justify-content-around w-100">
                                 <input
-                                    type="text"
+                                    type="number"
                                     onChange={this.handleWidth}
                                     placeholder="Enter Width"
                                     className="mt-3 mr-2 text-center form-control w-50"
                                 />
                                 <input
-                                    type="text"
+                                    type="number"
                                     onChange={this.handleHeight}
                                     placeholder="Enter Height"
                                     className="mt-3 ml-2 text-center form-control w-50"
