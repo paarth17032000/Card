@@ -46,15 +46,11 @@ export default class Drag extends Component {
           <Draggable
             axis="both"
             handle=".handle"
-            // bounds="parent"
-            // style={{position: "absolute", top: 0, cursor:"grab", zIndex: 10}}
           >
             <ResizableBox
               className="box"
               width={100}
               height={100}
-              // minConstraints={[50,50]}
-              // maxConstraints={[Infinity,Infinity]}
               style={{
                 position: "absolute",
                 top: "2.5%",
@@ -123,7 +119,6 @@ export default class Drag extends Component {
         {upldItems}
         <img
         className="img-fluid mr-5"
-          // className={`border ${this.state.bg}`}
           id="wallpaper"
           style={{
             width: "130%",

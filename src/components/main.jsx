@@ -16,11 +16,13 @@ export default class Main extends Component {
             bold: [],
             italics: [],
             underline: [],
-            upldItems: [],
-            downloadChoice: 'PNG',
-            keyItems: 0,
-            upldImg: '',
             align: [],
+            downloadChoice: 'PNG',
+            // upload images 
+            upldItems: [],
+            keyItems: 0,
+            // wallpaper
+            upldImg: '',
             imgAndIllus: [
                 {
                     key: 0,
@@ -40,7 +42,10 @@ export default class Main extends Component {
                     )
                 }
             ],
+            // key for upload img
             keyImg: 0,
+            // key for field
+            keyVal: 0,
             feilds: [
                 {
                     key: 0,
@@ -89,70 +94,58 @@ export default class Main extends Component {
                     )
                 }
             ],
-            keyVal: 0,
             tobeDownloaded: <Drag data={this.state} />,
         }
     };
+
     // methods defined
     handleWidth = (e) => {
         let width = `${e.target.value}px`;
         this.setState({
             width
         })
-        // console.log(this.state.width);
     }
     handleHeight = (e) => {
         let height = `${e.target.value}px`;
         this.setState({
             height
         })
-        // console.log(this.state.height);
     }
+
     handleText = (e) => {
-        // let newText = e.target.value;
         let textArr = this.state.text;
         textArr[parseInt(e.target.name)] = e.target.value;
-        // console.log(1,this.state.text);
         this.setState({
-            // text: [...this.state.text, newText]
             text: textArr
         })
-        // console.log(9,this.state.text);
     }
+
     handleFont = (e) => {
-        // let newFont = e.target.value;
         let fontArr = this.state.font;
         fontArr[parseInt(e.target.name)] = e.target.value;
         this.setState({
-            // font: [...this.state.font, newFont]
             font: fontArr
         })
-        // console.log(this.state.font);
     }
+
     handleColor = (e) => {
-        // let newColor = e.target.value;
         let colorArr = this.state.color;
         colorArr[parseInt(e.target.name)] = e.target.value;
         this.setState({
-            // color: [...this.state.color, newColor]
             color: colorArr
         })
-        console.log(1.00, e.target.name);
     }
+
     handleBold = (e) => {
         if (e.target.id === "false") {
             e.target.id = "true";
-            // let bold = "bold";
             let boldArr = this.state.bold;
             boldArr[parseInt(e.target.name)] = "bold";
             this.setState({
                 bold: boldArr
             })
-            // console.log(boldArr,e.target.name);
-            console.log(e.target.name);
         } else {
             e.target.id = "false";
-            // let bold = "normal";
             let boldArr = this.state.bold;
             boldArr[parseInt(e.target.name)] = "normal";
             this.setState({
@@ -160,70 +153,51 @@ export default class Main extends Component {
             })
         }
     }
+
     handleItalics = (e) => {
         if (e.target.id === "false") {
             e.target.id = "true";
-            // let italics = "italic";
             let italicsArr = this.state.italics;
             italicsArr[parseInt(e.target.name)] = "italic";
             this.setState({
                 italics: italicsArr
             })
-            console.log(e.target);
-            // this.setState({
-            //     italics
-            // })
         } else {
             e.target.id = "false";
-            // let italics = "normal";
             let italicsArr = this.state.italics;
             italicsArr[parseInt(e.target.name)] = "normal";
             this.setState({
                 italics: italicsArr
             })
-            // this.setState({
-            //     italics
-            // })
         }
-        // console.log(3,e.target.id);
     }
+
     handleUnderline = (e) => {
         if (e.target.id === "false") {
             e.target.id = "true";
-            // let underline = "underline";
             let underlineArr = this.state.underline;
             underlineArr[parseInt(e.target.name)] = "underline";
             this.setState({
                 underline: underlineArr
             })
-            // this.setState({
-            //     underline
-            // })
         } else {
             e.target.id = "false";
-            // let underline = "none";
             let underlineArr = this.state.underline;
             underlineArr[parseInt(e.target.name)] = "none";
             this.setState({
                 underline: underlineArr
             })
-            // this.setState({
-            //     underline
-            // })
         }
-        // console.log(3,e.target.id);
     }
+
     handleAlign = (e) => {
         let alignArr = this.state.align;
         alignArr[parseInt(e.target.name)] = e.target.value;
         this.setState({
             align: alignArr
         })
-        // this.setState({
-        //     align: e.target.value
-        // })
-        // console.log(this.state.text);
     }
+
     handleAddFeild = (e) => {
         let key = parseInt(this.state.keyVal + 1);
         let newFeild = {
@@ -245,7 +219,6 @@ export default class Main extends Component {
                     <select
                         onChange={this.handleAlign}
                         name={key}
-                        // placeholder="Select Background"
                         className="text-center form-control w-25 text-dark"
                     >
                         <option>Left</option>
@@ -273,20 +246,21 @@ export default class Main extends Component {
                 </div>
             )
         }
+
         this.setState({
             feilds: [...this.state.feilds, newFeild],
             keyVal: key
         })
-        // console.log(typeof this.state.keyVal);
     }
+
     handleWallpaper = (event) => {
         var src = this.state.upldImg;
         src = URL.createObjectURL(event.target.files[0]);
         this.setState({
             upldImg: src
         })
-        // console.log(src);
     }
+
     handleAddImageAndIllustration = (e) => {
         let key = parseInt(this.state.keyImg + 1);
         let newFeild = {
@@ -310,8 +284,8 @@ export default class Main extends Component {
             imgAndIllus: [...this.state.imgAndIllus, newFeild],
             keyImg: key
         })
-        console.log(this.state.keyImg);
     }
+
     handleClose = (e) => {
         let id = parseInt(e.target.id);
         let newArr = this.state.imgAndIllus.filter(element => id !== element.key);
@@ -321,6 +295,7 @@ export default class Main extends Component {
             upldItems: newUpldItemsArr
         })
     }
+
     handleUpldItems = (event) => {
         let src = URL.createObjectURL(event.target.files[0]);
         let key = parseInt(this.state.keyItems);
@@ -333,21 +308,11 @@ export default class Main extends Component {
             upldItems: [...this.state.upldItems, newObject],
             keyItems : key
         })
-        console.log(this.state.upldItems);
     }
-    // handleDownloadChoice = (e) => {
-    //     console.log(e.target.value);
-    //     this.setState({
-    //         downloadChoice: e.target.value
-    //     })
-    // }
+
+
     render() {
-    console.log(this.state.tobeDownloaded)
-        // let upldArr = this.state.upldField
-        //     .filter((ele) => ele !== undefined)
-        //     .map((ele) => ele.renderEle);
-        // console.log(upldArr);
-        console.log(this.state.imgAndIllus)
+        console.log(this.state.upldItems, this.state.imgAndIllus)
         return (
             <div className="container-fluid">
                 <div className="row mx-auto">
@@ -384,17 +349,17 @@ export default class Main extends Component {
                             >
                                 Add Another Text Feild
                             </div>
+
                             {/* image as bg */}
                             <h5 className="mt-3">-- choose for bg --</h5>
                             <div className="d-flex flex-row justify-content-around w-100 mx-auto">
                                 <input
                                     type="file"
                                     onChange={this.handleWallpaper}
-                                    // id="wallpaper"
                                     className="mt-1 text-center form-control w-75"
                                 />
-                                {/* <div className=" mt-1 btn btn-danger">X</div> */}
                             </div>
+
                             {/* image as image or illustration */}
                             <h5 className="mt-3">-- choose for illus --</h5>
                             {this.state.imgAndIllus.map((feild) => {
@@ -409,8 +374,6 @@ export default class Main extends Component {
                                 Add image or illustration
                             </div>
                             <select
-                                // value="download"
-                                // onClick={this.handleDownloadChoice}
                                 onClick = {(e) => {
                                     console.log(e.target.value)
                                     this.setState({
@@ -424,12 +387,12 @@ export default class Main extends Component {
                                 <option value="JPG">JPG</option>
                                 
                             </select>
+
                             <Download options={this.state} compref={this.componentRef}/>
-                            {/* {console.log(this.componentRef)} */}
                         </div>
                     </div>
 
-                    {/* white space to display everything */}
+                    {/* space to display everything */}
                     <div className="col-xl-8 col-lg-8 col-md-8 d-flex flex-row justify-content-center my-5">
                         <div className="my-4">
                             <div
@@ -445,7 +408,6 @@ export default class Main extends Component {
                                 }}
                             >
                                 <Drag ref={this.componentRef} data={this.state} />
-                                {/* <Dra ref={this.componentRef} data={this.state} /> */}
                             </div>
                         </div>
                     </div>
