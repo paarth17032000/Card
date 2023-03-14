@@ -6,3 +6,8 @@ npm i
 cd Card
 
 npm start
+
+<a href="https://github.com/naman360/bill-trackingt&branch=master&framework=react&publishDir=build&installCommand=yarn+install&buildCommand=yarn+build&nodeVersion=V_14&workspace=&protocol=ipfs&provider=GITHUB"
+target="_blank">
+CLONE
+</a>
